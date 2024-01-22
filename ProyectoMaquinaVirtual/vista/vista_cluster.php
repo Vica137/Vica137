@@ -9,7 +9,7 @@
 	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v20.8 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Home - GRID UNAM</title>
+	<title>Reporte de uso Grid UNAM</title>
 	<link rel="canonical" href="https://grid.unam.mx/" />
 	<meta property="og:locale" content="es_MX" />
 	<meta property="og:type" content="website" />
@@ -136,92 +136,82 @@ body.pojo-a11y-focusable a:focus{ outline-style: solid !important;	outline-width
 	<footer class="site-footer">
 
 
-// Añadido lo que tenía de index.html
+<!--Añadido lo que tenía de index.html-->
 
-//Variables
+<!--Variables-->
 
-<form id="formulario" action="https://formsubmit.co/gonzalonata06@ciencias.unam.mx" method="POST">
-  	<h1>
-	<FONT COLOR="white"> Reporte de uso Grid UNAM </FONT>
-	</h1>
-  <ul>
-    <p><li>
-            <label for="cluster">Cluster:</label>
-                <select name="cluster" id="id_cluster">
-                  <option selected>Seleccione un cluster</option>
-                  <option >LAMOD</option>
-                  <option >DGTIC</option>
-                  <option >IAE</option>
-                  <option >ICACC</option>
-                </select>
-        </li></p>
-        <p></p><li>
-            <label for="año">Año:</label>
-                <select name="año" id="id_año">
-                  <option selected>Seleccione un año</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                  <option>2026</option>
-                  <option>2027</option>
-                  <option>2028</option>
-                  <option>2029</option>
-                  <option>2030</option>
-                </select>
-        </li></p>
+<form id="formulario" action="../control/ConsultaControlador.php" method="POST">
+    <h1>
+        <FONT COLOR="white"> Reporte de uso Grid UNAM </FONT>
+    </h1>
+    <ul>
         <p>
-        <li>
-               <label for="mes">Mes:</label>
-                <select name="mes" id="id_mes">
-                  <option selected>Seleccione un mes</option>
-                  <option>Enero</option>
-                  <option>Febrero</option>
-                  <option>Marzo</option>
-                  <option>Abril</option>
-                  <option>Mayo</option>
-                  <option>Junio</option>
-                  <option>Julio</option>
-                  <option>Agosto</option>
-                   <option>Septiembre</option>
-                  <option>Octubre</option>
-                  <option>Noviembre</option>
-                  <option>Diciembre</option>
+            <li>
+                <label for="cluster">Cluster:</label>
+                <select name="cluster" id="id_cluster">
+                    <option selected>Seleccione un cluster</option>
+                    <option value ="ClusterA">ClusterA</option>
+                    <option value ="ClusterB">ClusterB</option>
+                    <option value ="ClusterC">ClusterC</option>
                 </select>
-	</li></p>
-	<p>
-	<li>
-  	<label for="bdaymonth"> Inicio de periodo:</label>
-  	<input type="month" id="id_ini_periodo" name="ini_periodo">
-	</li></p>
-	<p>
-        <li>
-        <label for="bdaymonth"> Fin de periodo:</label>
-        <input type="month" id="id_fin_periodo" name="fin_periodo">
-        </li></p>
-
-
-//Variables
-
-
-      <!-- <p><li>
-        <label for="fecha"> Fecha:</label><input type="month" id="id_fecha" name="fecha"
-       min="2023-06" value="2023-06" max="2030-12"></li></p> -->
-    <p>
-
-            <button type="button" onclick="myFunction()">Enviar</button>
-
-            <button type="reset">Borrar </button>
-
-
+            </li>
         </p>
-
-       </ul>
+        <p>
+            <li>
+                <label for="anio">Año:</label>
+                <select name="anio" id="anio">
+                    <option selected>Seleccione un año</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </li>
+        </p>
+        <p>
+            <li>
+                <label for="mes">Mes:</label>
+                <select name="mes" id="id_mes">
+                    <option selected>Seleccione un mes</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </li>
+        </p>
+        <p>
+            <li>
+                <label for="ini_periodo">Inicio de periodo:</label>
+                <input type="month" id="id_ini_periodo" name="ini_periodo">
+            </li>
+        </p>
+        <p>
+            <li>
+                <label for="fin_periodo">Fin de periodo:</label>
+                <input type="month" id="id_fin_periodo" name="fin_periodo">
+            </li>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar </button>
+        </p>
+    </ul>
 </form>
+
 <script type="text/javascript">
   // Obtener la referencia a la lista
 
 function myFunction(){
-
+ console.log('La función se está ejecutando...');
   var lista_c = document.getElementById("id_cluster");
 // Obtener el índice de la opción que se ha seleccionado
 var indiceSeleccionado_c = lista_c.selectedIndex;
@@ -257,15 +247,45 @@ var textoSeleccionado_a = opcionSeleccionada_a.text;
 //Cierre de añadido de index.html
 
 						
-						
-                    						
-						
-						
-			
+<?php
+function mostrarTabla($resultados) {
+    echo '<figure class="wp-block-table is-style-regular">';
+    echo '<table>';
+    echo '<tbody>';
+    echo '<tr bgcolor="#BAF04A">';
+    echo '<td class="has-text-align-left" data-align="left"><strong>#</strong></td>';
+    echo '<td class="has-text-align-left" data-align="left"><strong>Login</strong></td>';
+    echo '<td class="has-text-align-left" data-align="left"><strong>Cluster</strong></td>';
+    echo '<td class="has-text-align-left" data-align="left"><strong>Número de Jobs</strong></td>';
+    echo '<td class="has-text-align-left" data-align="left"><strong>Número de Horas</strong></td>';
+    echo '</tr>';
 
-			
-		
+    foreach ($resultados as $key => $fila) {
+        echo '<tr bgcolor="' . ($key % 2 == 0 ? '#ecf4fb' : '') . '">';
+        echo '<td class="has-text-align-left" data-align="left">' . ($key + 1) . '</td>';
+        echo '<td class="has-text-align-left" data-align="left">' . $fila['login'] . '</td>';
+        echo '<td class="has-text-align-left" data-align="left">' . $fila['cluster'] . '</td>';
+        echo '<td class="has-text-align-left" data-align="left">' . $fila['Njobs'] . '</td>';
+        echo '<td class="has-text-align-left" data-align="left">' . $fila['Nhoras'] . '</td>';
+        echo '</tr>';
+    }
 
+    echo '<tr>';
+    echo '<td class="has-text-align-left" data-align="left">' . ($key + 2) . '</td>';
+    echo '<td class="has-text-align-left" data-align="left">TOTAL</td>';
+    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['cluster'] . '</td>';
+    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['Njobs'] . '</td>';
+    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['Nhoras'] . '</td>';
+    echo '</tr>';
+
+    echo '</tbody>';
+    echo '</table>';
+    echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('F Y') . '.</figcaption>';
+    echo '</figure>';
+}
+?>
+
+					
     		<!--Site Info copyright-->
 		<div class="site-info text-center">
 			 <p class="icenter"><a style="padding-right:17px" href="https://www.unam.mx" target="_new" rel="noopener"><img src="https://grid.unam.mx/wp-content/uploads/2023/01/l_unam.png" width="78px" height="78px" alt="UNAM" /> </a>  <a style="padding-right:17px" href="https://www.tic.unam.mx/" target="_new" rel="noopener"><img src="https://grid.unam.mx/wp-content/uploads/2023/01/dgtic_l_n.png" alt="DGTIC" width="190" height="78" /></a><a style="padding-right:17px" href="http://www.lamod.unam.mx/" target="_new" rel="noopener"><img src="https://grid.unam.mx/wp-content/uploads/2023/03/l_lamod.png" alt="LAMOD" width="208" height="78" /></a> <a style="padding-right:17px" href="https://www.atmosfera.unam.mx/" target="_new" rel="noopener"><img src="https://grid.unam.mx/wp-content/uploads/2023/01/icacc_l.png" alt="Instituto de Ciencias de la Atmósfera y Cambio Climático" width="260" height="78" /></a></p>

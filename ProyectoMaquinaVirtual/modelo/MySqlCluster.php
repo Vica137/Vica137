@@ -1,38 +1,49 @@
-
 <?php
-$totaljobs = 0;
-$totalhoras = 0;
+include("conexion.php");
 
-// Validar y obtener los parámetros del mes y año
-$mes = isset($_GET['mes']) ? $_GET['mes'] : '';
-$anio = isset($_GET['anio']) ? $_GET['anio'] : '';
+function obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo) {
+    $totaljobs = 0;
+    $totalhoras = 0;
 
-// Verificar que los parámetros son válidos antes de realizar la consulta
-if (!empty($mes) && !empty($anio)) {
-    include("./conexion.php");
-    $con = conectar();
+    // Verificar que los parámetros son válidos antes de realizar la consulta
+    if (!empty($mes) && !empty($anio) && !empty($cluster)) {
+        $con = conectar();
 
-    // Utilizar parámetros en la consulta
-    $conta_horas = $con->query("SELECT * FROM servicio WHERE servicio.mes='$mes' and servicio.anio='$anio' and servicio.cluster='DGTIC'");
+        // Utilizar parámetros en la consulta
+        $conta_horas = $con->query("SELECT * FROM pruebadb WHERE pruebadb.mes='$mes' and pruebadb.anio='$anio' and pruebadb.cluster='$cluster'");
 
-    while ($row = $conta_horas->fetch_assoc()) {
-        if ($row["login"] == "TOTAL") {
-            $totaljobs += $row["Njobs"];
-            $totalhoras += $row["Nhoras"];
-        } else {
-            echo "<tr><td>" . substr($row["login"], 8) . "</td>
-                  <td>" . $row["cluster"] . "</td>
-                  <td>" . $row["Njobs"] . "</td>
-                  <td>" . $row["Nhoras"] . "</td></tr>";
+        $resultados = array();
+
+        while ($row = $conta_horas->fetch_assoc()) {
+            if ($row["login"] == "TOTAL") {
+                $totaljobs += $row["Njobs"];
+                $totalhoras += $row["Nhoras"];
+            } else {
+                $resultados[] = array(
+                    'login' => substr($row["login"], 8),
+                    'cluster' => $row["cluster"],
+                    'Njobs' => $row["Njobs"],
+                    'Nhoras' => $row["Nhoras"]
+                );
+            }
         }
-    }
 
-    echo "<tr><td>TOTAL</td>
-          <td>DGTIC</td>
-          <td>" . $totaljobs . "</td>
-          <td>" . $totalhoras . "</td></tr>";
-} else {
-    // Mensaje de error si los parámetros no son válidos
-    echo "Por favor, proporciona un mes y un año válidos.";
+        $resultados[] = array(
+            'login' => '1',
+            'cluster' => $cluster,
+            'Njobs' => $totaljobs,
+            'Nhoras' => $totalhoras
+        );
+
+        // Aquí puedes imprimir o devolver los resultados según tus necesidades
+        print_r($resultados);
+
+        // Cerrar la conexión después de usarla
+        $con->close();
+    } else {
+        // Mensaje de error si los parámetros no son válidos
+        echo json_encode(array('error' => "Por favor, proporciona un mes, un año y un cluster válidos."));
+    }
 }
 ?>
+
