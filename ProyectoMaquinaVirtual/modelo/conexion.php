@@ -3,7 +3,7 @@
 function conectar(){
 
         $user="root";
-        $pass="DGT1C.0litas";
+        $pass="";
         $server="localhost";
         $db="pruebadb";
         $con=new mysqli($server,$user,$pass, $db);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <!-- -->
@@ -138,121 +137,13 @@ body.pojo-a11y-focusable a:focus{ outline-style: solid !important;	outline-width
 </section>
 	<!--Footer-->
 	<footer class="site-footer">
-}
+
 
 <!--Añadido lo que tenía de index.html-->
 
-<!--Variables-->
-
-
-<form id="formulario" action="../control/ConsultaControlador.php" method="POST">
-    <h1>
-        <FONT COLOR="white"> Reporte de uso Grid UNAM </FONT>
-    </h1>
-    <ul>
-        <p>
-            <li>
-                <label for="cluster">Cluster:</label>
-                <select name="cluster" id="id_cluster">
-                    <option selected>Seleccione un cluster</option>
-                    <option value ="DGTIC">DGTIC</option>
-                    <option value ="LAMOD">LAMOD</option>
-                    <option value ="IAE">IAE</option>
-                    <option value ="ICACC">ICACC</option>
-                </select>
-            </li>
-        </p>
-        <p>
-            <li>
-                <label for="anio">Año:</label>
-                <select name="anio" id="anio">
-                    <option selected>Seleccione un año</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select>
-            </li>
-        </p>
-        <p>
-            <li>
-                <label for="mes">Mes:</label>
-                <select name="mes" id="id_mes">
-                    <option selected>Seleccione un mes</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
-            </li>
-        </p>
-        <p>
-            <li>
-                <label for="ini_periodo">Inicio de periodo:</label>
-                <input type="month" id="id_ini_periodo" name="ini_periodo">
-            </li>
-        </p>
-        <p>
-            <li>
-                <label for="fin_periodo">Fin de periodo:</label>
-                <input type="month" id="id_fin_periodo" name="fin_periodo">
-            </li>
-        </p>
-        <p>
-            <button type="submit">Enviar</button>
-            <button type="reset">Borrar </button>
-        </p>
-    </ul>
-</form>
-
-<script type="text/javascript">
-  // Obtener la referencia a la lista
-
-function myFunction(){
- console.log('La función se está ejecutando...');
-  var lista_c = document.getElementById("id_cluster");
-// Obtener el índice de la opción que se ha seleccionado
-var indiceSeleccionado_c = lista_c.selectedIndex;
-// Con el índice y el array "options", obtener la opción seleccionada
-var opcionSeleccionada_c = lista_c.options[indiceSeleccionado_c];
-// Obtener el valor y el texto de la opción seleccionada
-var textoSeleccionado_c = opcionSeleccionada_c.text;
-// https://uniwebsidad.com/libros/javascript/capitulo-7/utilidades-basicas-para-formularios
-var lista_m = document.getElementById("id_mes");
-// Obtener el índice de la opción que se ha seleccionado
-var indiceSeleccionado_m = lista_m.selectedIndex;
-// Con el índice y el array "options", obtener la opción seleccionada
-var opcionSeleccionada_m = lista_m.options[indiceSeleccionado_m];
-// Obtener el valor y el texto de la opción seleccionada
-var textoSeleccionado_m = opcionSeleccionada_m.text;
-//
-var lista_a = document.getElementById("id_año");
-// Obtener el índice de la opción que se ha seleccionado
-var indiceSeleccionado_a = lista_a.selectedIndex;
-// Con el índice y el array "options", obtener la opción seleccionada
-var opcionSeleccionada_a = lista_a.options[indiceSeleccionado_a];
-// Obtener el valor y el texto de la opción seleccionada
-var textoSeleccionado_a = opcionSeleccionada_a.text;
-
-
-  alert('Se ha elegido \n Cluster: ' + textoSeleccionado_c + '\n Año:' + textoSeleccionado_a + '\n Mes:' + textoSeleccionado_m );
-  document.getElementById("formulario").submit()
-  // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_form_submit
-
-}
-</script>
-
-//Cierre de añadido de index.html
 
 						
+<?php
 function mostrarTabla($resultados) {
     echo '<figure class="wp-block-table is-style-regular">';
     echo '<table>';
@@ -288,7 +179,7 @@ function mostrarTabla($resultados) {
     echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('F Y') . '.</figcaption>';
     echo '</figure>';
 }
-
+?>
 
 					
     		<!--Site Info copyright-->
@@ -415,9 +306,5 @@ var PojoA11yOptions = {"focusable":"","remove_link_target":"","add_role_links":"
 			</div>
 		</nav>
 		
-		</body>
-}
-
-
-
+</body>
 </html>

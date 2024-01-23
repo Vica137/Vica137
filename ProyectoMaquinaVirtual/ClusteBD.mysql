@@ -1,10 +1,23 @@
---Creaciond de la base de dtos
+/*
+Instalacion dependecias para rocky 9
+dnf install mysql-server php-mysqli
+systemctl start mysqld
+
+posteriormente crear la base de datos como se indica abajo
+mysql -u root -p + enter si se tiene la contraseña por defecto (vacio)
+
+
+
+*/
+
+
+-- Creacion de la base de dtos
 CREATE DATABASE pruebadb;
 USE pruebadb;
 
 
 --Creacion de tabla
-CREATE TABLE servicio (
+CREATE TABLE pruebadb (
     id INT AUTO_INCREMENT PRIMARY KEY,
     login VARCHAR(255) NOT NULL,
     cluster VARCHAR(50) NOT NULL,
@@ -14,8 +27,8 @@ CREATE TABLE servicio (
     anio INT NOT NULL
 );
 
---Insersion de datos
-INSERT INTO servicio (login, cluster, Njobs, Nhoras, mes, anio)
+-- Insersion de datos
+INSERT INTO pruebadb (login, cluster, Njobs, Nhoras, mes, anio)
 VALUES
 ('usuario1', 'DGTIC', 10, 20, 5, 2023),
 ('usuario2', 'GRID', 15, 25, 5, 2023),
