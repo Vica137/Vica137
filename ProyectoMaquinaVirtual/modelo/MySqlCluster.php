@@ -36,7 +36,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo) {
         );
 
         // Aquí puedes imprimir o devolver los resultados según tus necesidades
-        print_r($resultados);
+        //print_r($resultados);
 
         // Cerrar la conexión después de usarla
         $con->close();

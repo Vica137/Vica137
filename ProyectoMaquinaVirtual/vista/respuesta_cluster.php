@@ -4,6 +4,7 @@
 
 <html lang="es-MX">
 <head>	
+<body>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -53,11 +54,11 @@ img.emoji {
 
 include('encabezado.php');
 
-function mostrarTabla($resultados) {
+//function mostrarTabla($resultados) {
     echo '<figure class="wp-block-table is-style-regular">';
     echo '<table>';
     echo '<tbody>';
-    echo '<tr bgcolor="#BAF04A">';
+    echo '<tr bgcolor="#77DBFD">';
     echo '<td class="has-text-align-left" data-align="left"><strong>#</strong></td>';
     echo '<td class="has-text-align-left" data-align="left"><strong>Login</strong></td>';
     echo '<td class="has-text-align-left" data-align="left"><strong>Cluster</strong></td>';
@@ -65,7 +66,7 @@ function mostrarTabla($resultados) {
     echo '<td class="has-text-align-left" data-align="left"><strong>Número de Horas</strong></td>';
     echo '</tr>';
 
-    foreach ($resultados as $key => $fila) {
+    //foreach ($resultados as $key => $fila) {
         echo '<tr bgcolor="' . ($key % 2 == 0 ? '#ecf4fb' : '') . '">';
         echo '<td class="has-text-align-left" data-align="left">' . ($key + 1) . '</td>';
         echo '<td class="has-text-align-left" data-align="left">' . $fila['login'] . '</td>';
@@ -73,7 +74,7 @@ function mostrarTabla($resultados) {
         echo '<td class="has-text-align-left" data-align="left">' . $fila['Njobs'] . '</td>';
         echo '<td class="has-text-align-left" data-align="left">' . $fila['Nhoras'] . '</td>';
         echo '</tr>';
-    }
+  //  }
 
     echo '<tr>';
     echo '<td class="has-text-align-left" data-align="left">' . ($key + 2) . '</td>';
@@ -87,7 +88,7 @@ function mostrarTabla($resultados) {
     echo '</table>';
     echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('F Y') . '.</figcaption>';
     echo '</figure>';
-}
+//}
 
 include('inferior.php');
 
@@ -96,4 +97,3 @@ include('inferior.php');
 
 
 
-</html>

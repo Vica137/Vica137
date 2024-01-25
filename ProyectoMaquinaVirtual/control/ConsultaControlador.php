@@ -1,5 +1,6 @@
 <?php
 include("../modelo/MySqlCluster.php");
+include("../vista/respuesta_cluster.php");
 
 function procesarFormulario() {
     // Obtener los valores del formulario
@@ -14,8 +15,9 @@ function procesarFormulario() {
         // Llama a la función del modelo para generar el reporte
         $resultados = obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo);
         // Enviar resultados a la vista
-        include("../vista/vista_cluster.php");
-        mostrarTabla($resultados);
+	
+        include("../vista/encabezado.php");
+	mostrarTabla($resultados);
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
             die("Error al obtener resultados de la base de datos");
@@ -25,15 +27,18 @@ function procesarFormulario() {
         // Llama a la función del modelo para generar el reporte
         $resultados = obtenerResultados('', '', $cluster, $ini_periodo, $fin_periodo);
         // Enviar resultados a la vista
-        include("../vista/vista_cluster.php");
-        mostrarTabla($resultados);
-        // Verificar resultados y mostrar mensaje de error si es necesario
+	mostrarTabla($resultados);
+	include("../vista/inferior.php");
+	
+	// Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-            die("Error al obtener resultados de la base de datos");
-        }
+		include("../vista/vista_error.php");
+		
+            
+	}
     } else {
-        // Mensaje de error si no se proporcionan datos válidos
-        echo "Por favor, proporciona al menos un conjunto de datos válido.";
+        // Mensaje de error si no se proporcionan datos válidos 
+		include("../vista/vista_error.php");
     }
 }
 

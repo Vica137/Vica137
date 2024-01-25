@@ -1,11 +1,6 @@
 
-<!DOCTYPE html>
 
 <!-- -->
-
-<html lang="es-MX">
-<head>	
-	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	
@@ -128,4 +123,3 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-</html>
