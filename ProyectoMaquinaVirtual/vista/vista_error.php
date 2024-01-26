@@ -62,16 +62,35 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 			max-width: 201px;
 			height: auto;
 			}
-
 </style>
+</html>
 
 <?php
 
 include('encabezado.php');
+?>
+
+<html lang="es-MX">
+<head>  
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<center>
+<h1>
+<FONT COLOR="white"> Hola mundo </FONT>
+</h1>
+</center>
+</html>
+
+<?php
 include('inferior.php');
 
 ?>
 
 
 
-</html>
+
