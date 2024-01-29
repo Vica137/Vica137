@@ -44,8 +44,9 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='wp-block-library-css' href='https://grid.unam.mx/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-block-library-css' href='https://grid.unam.mx/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' type='text/css' media='all' /> 
 <link rel='stylesheet' id='classic-theme-styles-css' href='https://grid.unam.mx/wp-includes/css/classic-themes.min.css?ver=6.2.2' type='text/css' media='all' />
+
 
 <style id='global-styles-inline-css' type='text/css'>
     body {

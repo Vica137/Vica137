@@ -68,6 +68,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <?php
 
 include('encabezado.php');
+include('hola_mundo.php');
 ?>
 
 <html lang="es-MX">
@@ -81,7 +82,11 @@ include('encabezado.php');
 
 <center>
 <h1>
-<FONT COLOR="white"> Hola mundo </FONT>
+
+<FONT COLOR="white"> 
+<?php hola() ?>
+</FONT>
+<!-- <FONT COLOR="white"> Hola mundo </FONT> -->
 </h1>
 </center>
 </html>

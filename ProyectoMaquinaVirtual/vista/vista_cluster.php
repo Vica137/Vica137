@@ -33,6 +33,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 /*! This file is auto-generated */
 !function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
 </script>
+<!--
 <style type="text/css">
 img.wp-smiley,
 img.emoji {
@@ -47,7 +48,7 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-
+-->
 <?php
 include('encabezado.php');
 ?>
@@ -160,41 +161,6 @@ var textoSeleccionado_a = opcionSeleccionada_a.text;
 //Cierre de añadido de index.html
 
 <?php						
-function mostrarTabla($resultados) {
-    echo '<figure class="wp-block-table is-style-regular">';
-    echo '<table>';
-    echo '<tbody>';
-    echo '<tr bgcolor="#BAF04A">';
-    echo '<td class="has-text-align-left" data-align="left"><strong>#</strong></td>';
-    echo '<td class="has-text-align-left" data-align="left"><strong>Login</strong></td>';
-    echo '<td class="has-text-align-left" data-align="left"><strong>Cluster</strong></td>';
-    echo '<td class="has-text-align-left" data-align="left"><strong>Número de Jobs</strong></td>';
-    echo '<td class="has-text-align-left" data-align="left"><strong>Número de Horas</strong></td>';
-    echo '</tr>';
-
-    foreach ($resultados as $key => $fila) {
-        echo '<tr bgcolor="' . ($key % 2 == 0 ? '#ecf4fb' : '') . '">';
-        echo '<td class="has-text-align-left" data-align="left">' . ($key + 1) . '</td>';
-        echo '<td class="has-text-align-left" data-align="left">' . $fila['login'] . '</td>';
-        echo '<td class="has-text-align-left" data-align="left">' . $fila['cluster'] . '</td>';
-        echo '<td class="has-text-align-left" data-align="left">' . $fila['Njobs'] . '</td>';
-        echo '<td class="has-text-align-left" data-align="left">' . $fila['Nhoras'] . '</td>';
-        echo '</tr>';
-    }
-
-    echo '<tr>';
-    echo '<td class="has-text-align-left" data-align="left">' . ($key + 2) . '</td>';
-    echo '<td class="has-text-align-left" data-align="left">TOTAL</td>';
-    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['cluster'] . '</td>';
-    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['Njobs'] . '</td>';
-    echo '<td class="has-text-align-left" data-align="left">' . $resultados[0]['Nhoras'] . '</td>';
-    echo '</tr>';
-
-    echo '</tbody>';
-    echo '</table>';
-    echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('F Y') . '.</figcaption>';
-    echo '</figure>';
-}
 
 include('inferior.php');
 
