@@ -32,17 +32,20 @@ function procesarFormulario() {
         $resultados = obtenerResultados('', '', $cluster, $ini_periodo, $fin_periodo);
         // Enviar resultados a la vista
 	mostrarTabla($resultados);
-	include("../vista/inferior.php");
+	include("../vista/pie.php");
 	
 	// Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
 		include("../vista/vista_error.php");
-		
+		header("Location: ./../vista_error.php");
+		die();		
             
 	}
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-		include("../vista/vista_error.php");
+	    include("../vista/vista_error.php");
+	    header("Location: ./../vista_error.php");
+	    die();
     }
 }
 
