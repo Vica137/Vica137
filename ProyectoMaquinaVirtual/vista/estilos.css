@@ -1,7 +1,7 @@
 /* Variables de color */
 :root {
     --color-text: #333;
-    --color-background: #fff;
+    --color-background: #fff; /*Color general de la página* /*Color general de la página*/
     --color-link: #0693e3;
     --color-header: #de2c2c;
     --color-navbar-bg: #010326;
@@ -12,7 +12,7 @@
     --color-form-input-text: #333;
     --color-table-border: #ddd;
     --color-table-header-bg: #de2c2c;
-    --color-list-item-bg: #f9f9f9;
+    --color-list-item-bg: #02314F; /*Color de los subcontenedores dentro del formulario*/
     --color-image-border: #ddd;
     --color-linea-superior: #33b0ea;
 }
@@ -27,7 +27,7 @@
 /* Ajustes generales */
 body {
     font-family: 'Helvetica', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-background);
@@ -145,5 +145,41 @@ border-color: var(--color-linea-superior);
 
 }
 
+#form-container {  /* contenedor del formulario*/
+max-width: 600px;
+margin: 50px auto;
+background-color: #02314F; /* Color contenedor principal formulario*/
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+								       }
 
+h2 { /* Color titulo en contenedor de formulario*/
+	            color: #fff;
+   }
+
+label {
+	display: block;
+	margin-bottom:8px;
+	color: #fff; /*Color texto labels formulario*/
+}
+
+input {
+width: 100%;
+padding: 8px;
+margin-bottom: 16px;
+box-sizing: border-box;
+border: 1px solid #cccccc;
+border-radius: 4px;
+}
+
+input[type="submit"] {
+background-color: #007BFF;
+color: #ffffff;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	            background-color: #0056b3;
+}
 
