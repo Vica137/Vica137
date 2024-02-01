@@ -10,7 +10,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo) {
         $con = conectar();
 
         // Utilizar parámetros en la consulta
-        $conta_horas = $con->query("SELECT * FROM pruebadb WHERE pruebadb.mes='$mes' and pruebadb.anio='$anio' and pruebadb.cluster='$cluster'");
+        $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' and rgrid.cluster='$cluster'");
 
         $resultados = array();
 

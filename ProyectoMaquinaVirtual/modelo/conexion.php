@@ -5,7 +5,7 @@ function conectar(){
         $user="root";
         $pass="";
         $server="localhost";
-        $db="pruebadb";
+        $db="rgrid";
         $con=new mysqli($server,$user,$pass, $db);
         if (!$con) {
                 die('No se pudo conectar: ' . mysql_error());

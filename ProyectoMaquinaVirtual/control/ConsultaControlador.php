@@ -20,7 +20,7 @@ function procesarFormulario() {
         $resultados = obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo);
         // Enviar resultados a la vista
 	
-        include("../vista/encabezado.php");
+        //include("../vista/encabezado.php");
 	mostrarTabla($resultados);
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
@@ -32,19 +32,21 @@ function procesarFormulario() {
         $resultados = obtenerResultados('', '', $cluster, $ini_periodo, $fin_periodo);
         // Enviar resultados a la vista
 	mostrarTabla($resultados);
-	include("../vista/pie.php");
+	//include("../vista/pie.php");
 	
 	// Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-		include("../vista/vista_error.php");
-		header("Location: ./../vista_error.php");
+		//include("../vista/vista_error.php");
+		$_SESSION['error_consulta'] = "consulta";	
+		header("Location: http://localhost:4000/vista/vista_error.php");
 		die();		
             
 	}
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-	    include("../vista/vista_error.php");
-	    header("Location: ./../vista_error.php");
+	    //include("../vista/vista_error.php");
+	    $_SESSION['error_datos'] = "datos";	
+	    header("Location: http://localhost:4000/vista/vista_error.php");
 	    die();
     }
 }

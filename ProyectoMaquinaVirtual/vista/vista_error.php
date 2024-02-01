@@ -33,6 +33,16 @@ hola
 </h1>
 
 <?php
+if (!isset($_SESSION['error_consulta']))
+{
+  echo "Error al consultar la base de datos"; 
+}
+elseif (!isset($_SESSION['error_datos']))
+{
+  echo "Error al ingresar los datos";
+
+}
+
 include('pie.php');
 
 ?>
