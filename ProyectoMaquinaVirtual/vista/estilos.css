@@ -14,7 +14,7 @@
     --color-table-header-bg: #de2c2c;
     --color-list-item-bg: #02314F; /*Color de los subcontenedores dentro del formulario*/
     --color-image-border: #ddd;
-    --color-linea-superior: #33b0ea;
+    --color-linea-superior: #33b0ea; /* Color de los elementos hr*/
 }
 
 /* Reset de estilos */
@@ -158,6 +158,11 @@ h2 { /* Color titulo en contenedor de formulario*/
 	            color: #fff;
    }
 
+h3 { /* Color titulo en contenedor de formulario*/
+                    color: #000;
+}
+
+
 label {
 	display: block;
 	margin-bottom:8px;
@@ -181,5 +186,29 @@ cursor: pointer;
 
 input[type="submit"]:hover {
 	            background-color: #0056b3;
+}
+
+
+.boton_error {
+  padding: 10px 20px;
+  background-color: #33b0ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton_error:hover {
+  background-color: #33b0ea;
+}
+
+.boton_error:active {
+  background-color: #33b0ea;
+}
+
+.boton_error{
+        position:relative;
+        bottom : 5px;
+        
 }
 

@@ -28,19 +28,17 @@ include('encabezado.php');
 
 ?>
 
-<h1>
-hola
-</h1>
 
 <?php
 if (!isset($_SESSION['error_consulta']))
 {
-  echo "Error al consultar la base de datos"; 
+	include("error_consulta.php");      
+ 
 }
 elseif (!isset($_SESSION['error_datos']))
 {
-  echo "Error al ingresar los datos";
 
+  	include("error_datos.php");
 }
 
 include('pie.php');
