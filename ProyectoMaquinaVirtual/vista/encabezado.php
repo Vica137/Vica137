@@ -11,7 +11,7 @@
         }
 
         .shifted-image {
-            margin-left: 100px; /* Mueve la imagen hacia la derecha */
+            margin-left: 200px; /* Mueve la imagen hacia la derecha */
             display: block; /* Hace que la imagen sea un bloque para aplicar márgenes automáticos */
         }
           </style>
@@ -20,7 +20,9 @@
 <body>
 
 <div class="image-container">
+<a href="../../index.php">
  <img src="Logo_grid_unam_b.png" alt="Imagen de ejemplo" class"shifted-image">
+</a>
 </div>
 
 <hr>

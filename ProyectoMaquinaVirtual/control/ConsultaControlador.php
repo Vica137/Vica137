@@ -4,7 +4,6 @@
     Objetivo: Se encarga de procesar los datos obtenidos de la vista, para mandarlos a modelo y una vez obtenido el resultado se los enviara nuevamente a vista para mostrar los resultados de manera ordenada 
 */
 include("../modelo/MySqlCluster.php");
-//include("../vista/respuesta_cluster.php");
 include("../vista/encabezado.php");
 include("../control/funcion_tabla.php");
 
@@ -23,7 +22,7 @@ function procesarFormulario() {
         // Enviar resultados a la vista
 	
         //include("../vista/encabezado.php");
-	//mostrarTabla($resultados);
+	mostrarTabla($resultados);
 	include("../vista/pie.php");
 
 	// Verificar resultados y mostrar mensaje de error si es necesario
@@ -64,7 +63,6 @@ function procesarFormulario() {
 // Procesar formulario si se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     procesarFormulario();
-    include("../vista/pie.php");
 }
 ?>
 

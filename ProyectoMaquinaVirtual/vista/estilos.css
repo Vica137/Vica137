@@ -11,7 +11,7 @@
     --color-form-input-bg: #f4f4f4;
     --color-form-input-text: #333;
     --color-table-border: #ddd;
-    --color-table-header-bg: #de2c2c;
+    --color-table-header-bg: #04041c;
     --color-list-item-bg: #02314F; /*Color de los subcontenedores dentro del formulario*/
     --color-image-border: #ddd;
     --color-linea-superior: #33b0ea; /* Color de los elementos hr*/
@@ -89,22 +89,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
 }
 
-/* Tablas */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.table th, .table td {
-    border: 1px solid var(--color-table-border);
-    padding: 10px;
-    text-align: left;
-}
-
-.table th {
-    background-color: var(--color-table-header-bg);
-}
 
 /* Listas */
 ul, ol {
@@ -121,13 +105,25 @@ li {
  img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+   /* position: relative; cambiar la posicion relativa de la imagen respecto al contenedor 
+    left: 20px; 
+    top: 18px; */
+} 
+
+.img-grid{
+  max-width: 100%;
+    height: auto;
   /*  border: 1px solid var(--color-image-border);*/
     border-radius: 5px;
     margin-bottom: 10px;
     position: relative;/* cambiar la posicion relativa de la imagen respecto al contenedor */
-    left: 20px; 
+    left: 20px;
     top: 18px;
-} 
+
+
+}
 
 /* Otros estilos específicos según tus necesidades */
 
@@ -211,4 +207,43 @@ input[type="submit"]:hover {
         bottom : 5px;
         
 }
+
+
+nav {  /*Diseño del menu de la página index.php*/
+
+            background-color: #04041c;
+            text-align: center;
+            padding: 10px;
+        }
+
+nav a {    /*Diseño del texto que conforma el menú de la página index.php*/
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            display: inline-block;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+
+th {
+            background-color: #04041c;
+            color: white;   
+    }
+
+
 

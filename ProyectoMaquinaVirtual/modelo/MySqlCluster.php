@@ -35,7 +35,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo) {
             'Nhoras' => $totalhoras
         );
 
-        // Aquí puedes imprimir o devolver los resultados según tus necesidades
+     /*   // Aquí puedes imprimir o devolver los resultados según tus necesidades
         print_r($resultados);
 
         // Cerrar la conexión después de usarla
@@ -43,7 +43,14 @@ function obtenerResultados($mes, $anio, $cluster, $ini_periodo, $fin_periodo) {
     } else {
         // Mensaje de error si los parámetros no son válidos
         echo json_encode(array('error' => "Por favor, proporciona un mes, un año y un cluster válidos."));
-    }
+    }*/
+	  // Cerrar la conexión después de usarla
+        $con->close();
+        return $resultados;
+
+}
 }
 ?>
+
+
 
