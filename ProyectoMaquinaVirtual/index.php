@@ -10,7 +10,9 @@
 
     $consultaController = new ConsultaController();
     $consultaController->mostrarDatos($tipoConsulta, $meses);
-*/ 
+ */ 
+
+session_start();
 ?>
 
 
@@ -41,11 +43,19 @@
 ?>
 
 <nav>
-        <a href="./vista/vista_cluster.php">Reporte por cluster</a>
-        <a href="./vista/vista_usuario.php">Reporte por usuario</a>
-        <a href="./vista/vista_proyecto.php">Reporte por proyecto</a>
-        <a href="./vista/vista_grid.php">Reporte Grid UNAM</a>
+        <a href="./vista/vista_cluster.php?opcion=cluster">Reporte por cluster</a>
+        <a href="./vista/vista_usuario.php?opcion=usuario">Reporte por usuario</a>
+        <a href="./vista/vista_proyecto.php?opcion=proyecto">Reporte por proyecto</a>
+        <a href="./vista/vista_grid.php?opcion=grid">Reporte Grid UNAM</a>
 </nav>
+
+    <?php
+        // Verificar la opción seleccionada
+        if(isset($_GET['opcion'])){
+            $GLOBALS['opcionSeleccionada'] = $_GET['opcion'];
+	    $_SESSION['opcionSeleccionada'] = $_GET['opcion'];
+	}
+    ?>
 
 
 <center>
