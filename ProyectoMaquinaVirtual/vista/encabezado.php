@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de Estilos CSS</title>
+    <title>Consulta grid unam</title>
     <link rel="stylesheet" href="estilos.css">
           <style>
         .image-container {

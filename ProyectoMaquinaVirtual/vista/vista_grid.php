@@ -25,7 +25,7 @@ include("encabezado.php")
 
 <div id="form-container">
 
-<form id="formulario" action="https://formsubmit.co/gonzalonata06@ciencias.unam.mx" method="POST">
+<form id="formulario" action="../control/GridControlador.php" method="POST">
   <h2>Reporte de uso de todo Grid UNAM</h2>
   <ul>
     <!-- <p><li>
@@ -39,36 +39,32 @@ include("encabezado.php")
 	</li></p>
      --> 
        <li>
-            <label for="año">Año:</label>
-                <select name="año" id="id_año">
-                  <option selected>Seleccione un año</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                  <option>2026</option>
-                  <option>2027</option>
-                  <option>2028</option>
-                  <option>2029</option>
-                  <option>2030</option>
+            <label for="anio">Año:</label>
+                <select name="anio" id="anio">
+                    <option selected>Seleccione un año</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
                 </select>
         </li></p>
         <p>
         <li>
                <label for="mes">Mes:</label>
                 <select name="mes" id="id_mes">
-		 <option selected>Seleccione un mes</option>
-		  <option>Enero</option>
-		  <option>Febrero</option>
-                  <option>Marzo</option>
-                  <option>Abril</option>
-                  <option>Mayo</option>
-                  <option>Junio</option>
-                  <option>Julio</option>
-                  <option>Agosto</option>
-                   <option>Septiembre</option>
-                  <option>Octubre</option>
-                  <option>Noviembre</option>
-                  <option>Diciembre</option>
+                    <option selected>Seleccione un mes</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
                 </select>
 	</li></p>
 	<p>
@@ -78,7 +74,7 @@ include("encabezado.php")
 	</li></p>
 	<p>
         <li>
-        <label for="bdaymonth"> FIn de periodo:</label>
+        <label for="bdaymonth"> Fin de periodo:</label>
         <input type="month" id="id_fin_periodo" name="fin_periodo">
         </li></p>
 
@@ -89,8 +85,7 @@ include("encabezado.php")
 
     <p>
 
-            <button type="button" onclick="myFunction()">Enviar</button>
-
+            <button type="submit">Enviar</button>
             <button type="reset">Borrar </button>
 
 

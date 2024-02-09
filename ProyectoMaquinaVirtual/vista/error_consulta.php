@@ -6,8 +6,9 @@ Error de  consulta
 
 	<img src="error_base.png" >
 
-	<a href="vista_cluster.php">
-	<button class="boton_error">Nueva consulta</button>
-	</a>
+	
+<a href='../index.php'>
+ <button >Nueva consulta</button>
+</a>
 
 </center>

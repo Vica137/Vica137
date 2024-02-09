@@ -41,12 +41,46 @@
 ?>
 
 <nav>
-        <a href="./vista/vista_cluster.php">Reporte por cluster</a>
-        <a href="./vista/vista_usuario.php">Reporte por usuario</a>
-        <a href="./vista/vista_proyecto.php">Reporte por proyecto</a>
-        <a href="./vista/vista_grid.php">Reporte Grid UNAM</a>
+        <a href="./vista/vista_cluster.php?opcion=cluster">Reporte por cluster</a>
+        <a href="./vista/vista_usuario.php?opcion=usuario">Reporte por usuario</a>
+        <a href="./vista/vista_proyecto.php?opcion=proyecto">Reporte por proyecto</a>
+        <a href="./vista/vista_grid.php?opcion=grid">Reporte Grid UNAM</a>
 </nav>
 
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    	// Verificar si se recibió la opción
+    	if (isset($_GET['opcion']) && !empty($_GET['opcion'])) {
+        $_SESSION['opcionSeleccionada'] = $_GET['opcion'];
+    	// Procesar la opción seleccionada
+        switch ($opcion) {
+            case 'cluster':
+                // Hacer algo para la opción "cluster"
+                echo "Reporte por cluster";
+                break;
+            // Agregar casos para otras opciones si es necesario
+            case 'usuario':
+                // Hacer algo para la opción "usuario"
+                echo "Reporte por usuario";
+                break;
+            case 'proyecto':
+                // Hacer algo para la opción "proyecto"
+                echo "Reporte por proyecto";
+                break;
+            case 'grid':
+                // Hacer algo para la opción "grid"
+                echo "Reporte Grid UNAM";
+                break;
+            default:
+                // Opción por defecto si no coincide con ninguna de las anteriores
+                echo "Opción no válida";
+                break;
+        }
+    } else {
+        echo "No se recibió ninguna opción.";
+    }
+}
+    ?>
 
 <center>
 	<img src="computadora_lamod.jpg" height="40%" width="40%">

@@ -13,7 +13,7 @@
 	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v20.8 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Reporte de uso cluster Grid UNAM</title>
+	<title>Reporte de uso Grid UNAM</title>
 	<link rel="canonical" href="https://grid.unam.mx/" />
 	<meta property="og:locale" content="es_MX" />
 	<meta property="og:type" content="website" />
@@ -27,7 +27,7 @@
 <?php
 
 
-include('encabezado.php');
+//include('encabezado.php');
 
 ?>
 
@@ -36,10 +36,9 @@ include('encabezado.php');
 
 <?php
 
-include('pie.php');
+//include('pie.php');
 
 ?>
 
+
 </center>
-
-

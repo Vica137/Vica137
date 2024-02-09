@@ -52,7 +52,8 @@
             echo 'No hay datos para mostrar.';
             return;
         }
-
+        echo '<br>'; //Espacio en blanco para que la tabla no este tan pegada al encabezado
+        echo '<b>'; //negritas
         echo '<figure class="wp-block-table is-style-regular">';
         echo '<table>';
         echo '<tbody>';
@@ -79,8 +80,9 @@
         echo '<td>' . $GLOBALS['totalhoras'] . '</td></tr>';
         echo '</tbody>';
         echo '</table>';
+        echo '</b>';
         echo '<div class="container">';
-        echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('F Y') . '.</figcaption>';
+        echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('d ' . "/" . ' m ' . "/" . ' Y') . '.</figcaption>';
         echo '</div>';
         echo '</figure>';
     }
