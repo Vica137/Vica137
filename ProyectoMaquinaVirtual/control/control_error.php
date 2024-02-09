@@ -31,8 +31,8 @@ function redireccion(){
 }
 
 
-if (isset($_SESSION['opcionSeleccionada'])) {
+//if (isset($_SESSION['opcionSeleccionada'])) {
     redireccion();
-}
+//}
 ?>
 

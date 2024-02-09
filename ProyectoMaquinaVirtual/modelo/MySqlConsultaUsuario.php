@@ -14,7 +14,7 @@ function procesarConsultaMySql($conta_horas) {
         $GLOBALS['totaljobs'] += $row["Njobs"];
         $GLOBALS['totalhoras'] += $row["Nhoras"];
         $resultados[] = array(
-            'login' => $row['login'],
+            'mes' => $row["mes"],
             'cluster' => $row["cluster"],
             'Njobs' => $row["Njobs"],
             'Nhoras' => $row["Nhoras"]
@@ -25,19 +25,19 @@ function procesarConsultaMySql($conta_horas) {
     return $resultados;
 }
 
-function obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
+function obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
     // Verificar que los parámetros son válidos antes de realizar la consulta
-    if ((!empty($mes) && !empty($anio) && !empty($cluster)) || (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($cluster)))  {
+    if ((!empty($mes) && !empty($anio) && !empty($usuario)) || (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($usuario)))  {
         
         $con = conectar();
 
-        if (!empty($mes) && !empty($anio) && !empty($cluster)) {
+        if (!empty($mes) && !empty($anio) && !empty($usuario)) {
             // Utilizar parámetros en la consulta
-            $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' and rgrid.cluster='$cluster' ORDER BY login");
+            $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' and rgrid.login='$usuario' ORDER BY login");
             $resultados = procesarConsultaMySql($conta_horas);
-        } elseif (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($cluster)) {
+        } elseif (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($usuario)) {
             // Utilizar parámetros en la consulta
-            $conta_horas = $con->query("SELECT * FROM rgrid WHERE (rgrid.anio >= '$ini_anio' AND rgrid.mes >= '$ini_mes') AND (rgrid.anio <= '$fin_anio' AND rgrid.mes <= '$fin_mes') AND rgrid.cluster = '$cluster' ORDER BY rgrid.anio, rgrid.mes;");
+            $conta_horas = $con->query("SELECT * FROM rgrid WHERE (rgrid.anio >= '$ini_anio' AND rgrid.mes >= '$ini_mes') AND (rgrid.anio <= '$fin_anio' AND rgrid.mes <= '$fin_mes') AND rgrid.login = '$usuario' ORDER BY rgrid.anio, rgrid.mes;");
             $resultados = procesarConsultaMySql($conta_horas);
         }
 
@@ -51,3 +51,5 @@ function obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio,
     }
 }
 ?>
+
+
