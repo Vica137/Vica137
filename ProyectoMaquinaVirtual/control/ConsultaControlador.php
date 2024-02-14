@@ -6,6 +6,8 @@
 include("../modelo/MySqlCluster.php");
 include("../vista/encabezado.php");
 include("../control/funcion_tabla.php");
+include("../modelo/conexion.php");
+
 
 function procesarFormulario() {
     // Obtener los valores del formulario
@@ -28,13 +30,13 @@ function procesarFormulario() {
     if ((!empty($mes) && !empty($anio) && !empty($cluster)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($cluster))) {
         // Llama a la función del modelo para generar el reporte
         // En el controlador
-		echo "cluster: " . $cluster . "<br>";
-		echo "anio: " . $anio . "<br>";
-		echo "mes: " . $mes . "<br>";
-		echo "ini_periodo: " . $ini_mes . "<br>";
-		echo "fin_periodo: " . $fin_mes . "<br>";
-        echo "ini_periodo: " . $ini_anio . "<br>";
-        echo "fin_periodo: " . $fin_anio . "<br>";
+	//	echo "cluster: " . $cluster . "<br>";
+	//	echo "anio: " . $anio . "<br>";
+	//	echo "mes: " . $mes . "<br>";
+	//	echo "ini_periodo: " . $ini_mes . "<br>";
+	//	echo "fin_periodo: " . $fin_mes . "<br>";
+        //echo "ini_periodo: " . $ini_anio . "<br>";
+        //echo "fin_periodo: " . $fin_anio . "<br>";
 
         $resultados = obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
 

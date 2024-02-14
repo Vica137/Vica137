@@ -18,9 +18,9 @@ function procesarFormulario() {
     $fin_periodo = isset($_POST["fin_periodo"]) ? $_POST["fin_periodo"] : '';
 
     //2022-01
-		//2023-12
-			// Definir $mes y $anio si se ha enviado un periodo
-	    if (!empty($ini_periodo) && !empty($fin_periodo)) {
+	//2023-12
+	// Definir $mes y $anio si se ha enviado un periodo
+	if (!empty($ini_periodo) && !empty($fin_periodo)) {
 	        $ini_anio = substr($ini_periodo, 0, 4);
 	        $ini_mes = substr($ini_periodo, 5);
 	        $fin_anio = substr($fin_periodo, 0, 4);
@@ -30,29 +30,29 @@ function procesarFormulario() {
     if ((!empty($mes) && !empty($anio) && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
         // Llama a la función del modelo para generar el reporte
         
-        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
+        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
         // Enviar resultados a la vista
         mostrarTabla($resultados);
         include("../vista/pie.php");
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-	     //echo "Error por que no hay datos---- ";
-            // $_SESSION['error_datos'] = "datos";
-            header("Location: ../vista/error_datos.php");
-            die();
-
-
-
+            $_SESSION['error_consulta'] = "consulta";
+            header("Loc ation: ../vista/vista_error.php");
+            die("Error al obtener resultados de la base de datos");
         }
 
+    } elseif (empty($usuario)) {
+        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
+
+        // Enviar resultados a la vista
+        mostrarTabla($resultados);
+        include("../vista/pie.php");
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-        //$_SESSION['error_parametros'] = "parametros";   
-        header("Location: ../vista/error_parametros.php");
+        $_SESSION['error_datos'] = "datos";   
+        header("Location: ../vista/vista_error.php");
         die();
-
-    
     }
 }
 

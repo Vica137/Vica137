@@ -5,7 +5,8 @@ include("encabezado.php");
 
 <center>
 <h3>
-Error de  consulta con la base de datos
+Error de  conexión con la base de datos <?php echo $_SESSION['mysql_error']?>
+
 </h3>
 
 	<img src="error_base.png" >

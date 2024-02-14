@@ -40,7 +40,7 @@ include("encabezado.php");
 
 <p><li><label for="check_usuarios">Buscar para todos los usuarios:</label>
 <center>
-<input type="checkbox" class="mycheck" name="name_check_usuarios" id="id_check_usuarios">  </li> </p>
+<input value="todos" type="checkbox" class="mycheck" name="name_check_usuarios" id="id_check_usuarios">  </li> </p>
 </center>
 
 
