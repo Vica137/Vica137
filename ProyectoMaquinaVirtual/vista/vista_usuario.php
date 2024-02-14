@@ -77,10 +77,12 @@ include("encabezado.php");
         <input type="month" id="id_fin_periodo" name="fin_periodo">
         </li></p>
 
+
       <!-- <p><li>
         <label for="fecha"> Fecha:</label><input type="month" id="id_fecha" name="fecha"
        min="2023-06" value="2023-06" max="2030-12"></li></p> -->
     <p>
+            <!-- <input type="submit" name="todos" value="todos"> -->
             <button type="submit">Enviar</button>
             <button type="reset">Borrar </button>
         </p>

@@ -49,37 +49,11 @@
 
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    	// Verificar si se recibió la opción
-    	if (isset($_GET['opcion']) && !empty($_GET['opcion'])) {
-        $_SESSION['opcionSeleccionada'] = $_GET['opcion'];
-    	// Procesar la opción seleccionada
-        switch ($opcion) {
-            case 'cluster':
-                // Hacer algo para la opción "cluster"
-                echo "Reporte por cluster";
-                break;
-            // Agregar casos para otras opciones si es necesario
-            case 'usuario':
-                // Hacer algo para la opción "usuario"
-                echo "Reporte por usuario";
-                break;
-            case 'proyecto':
-                // Hacer algo para la opción "proyecto"
-                echo "Reporte por proyecto";
-                break;
-            case 'grid':
-                // Hacer algo para la opción "grid"
-                echo "Reporte Grid UNAM";
-                break;
-            default:
-                // Opción por defecto si no coincide con ninguna de las anteriores
-                echo "Opción no válida";
-                break;
-        }
-    } else {
-        echo "No se recibió ninguna opción.";
-    }
-}
+    // Verificar si se recibió la opción
+    if (isset($_GET['opcion']) && !empty($_GET['opcion'])) {
+        $_SESSION['opcionSelecciona'] = $_GET['opcion'];
+    	}
+	}
     ?>
 
 <center>

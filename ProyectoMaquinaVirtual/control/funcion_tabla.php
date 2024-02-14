@@ -47,45 +47,59 @@
 <?php
 
   function mostrarTabla($resultados)
-    {
-        if (empty($resultados)) {
-            echo 'No hay datos para mostrar.';
-            return;
-        }
-        echo '<br>'; //Espacio en blanco para que la tabla no este tan pegada al encabezado
-        echo '<b>'; //negritas
-        echo '<figure class="wp-block-table is-style-regular">';
-        echo '<table>';
-        echo '<tbody>';
-        echo '<tr bgcolor=#D8AEFF>';
-        echo '<td class="has-text-align-left" data-align="left"><strong>#</strong></td>';
-        foreach ($resultados[0] as $columna => $valor) {
-            echo '<td class="has-text-align-left" data-align="left"><strong>' . $columna . '</strong></td>';
+{
+    if (empty($resultados)) {
+        echo 'No hay datos para mostrar.';
+        return;
+    }
+    echo '<br>'; // Espacio en blanco para que la tabla no esté tan pegada al encabezado
+    echo '<b>'; // Negritas
+    echo '<figure class="wp-block-table is-style-regular">';
+    echo '<table>';
+    echo '<tbody>';
+    echo '<tr bgcolor=#D8AEFF>';
+    echo '<td class="has-text-align-left" data-align="left"><strong>#</strong></td>';
+    foreach ($resultados[0] as $columna => $valor) {
+        echo '<td class="has-text-align-left" data-align="left"><strong>' . $columna . '</strong></td>';
+    }
+    echo '</tr>';
+
+    // Variable para sumar el total de jobs y horas
+    $total_jobs = 0;
+    $total_horas = 0;
+
+    foreach ($resultados as $key => $fila) {
+        echo '<tr bgcolor="' . ($key % 2 == 0 ? '#ecf4fb' : '') . '">';
+        echo '<td class="has-text-align-left" data-align="left">' . ($key + 1) . '</td>';
+        foreach ($fila as $columna => $valor) {
+            echo '<td class="has-text-align-left" data-align="left">' . $valor . '</td>';
+            if ($columna === 'Njobs') {
+                $total_jobs += $valor;
+            }
+            if ($columna === 'Nhoras') {
+                $total_horas += $valor;
+            }
         }
         echo '</tr>';
-
-        foreach ($resultados as $key => $fila) {
-            echo '<tr bgcolor="' . ($key % 2 == 0 ? '#ecf4fb' : '') . '">';
-            echo '<td class="has-text-align-left" data-align="left">' . ($key + 1) . '</td>';
-            foreach ($fila as $valor) {
-                echo '<td class="has-text-align-left" data-align="left">' . $valor . '</td>';
-            }
-            echo '</tr>';
-        }
-
-        echo '<tr><td>TOTAL</td>';
-        echo '<td> </td>';
-        echo '<td> </td>';
-        echo '<td>' . $GLOBALS['totaljobs']  . '</td>';
-        echo '<td>' . $GLOBALS['totalhoras'] . '</td></tr>';
-        echo '</tbody>';
-        echo '</table>';
-        echo '</b>';
-        echo '<div class="container">';
-        echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('d ' . "/" . ' m ' . "/" . ' Y') . '.</figcaption>';
-        echo '</div>';
-        echo '</figure>';
     }
+
+    echo '<tr>';
+    echo '<td>TOTAL</td>';
+    echo '<td></td>'; // Celda vacía para la columna intermedia
+    echo '<td></td>'; // Celda vacía para la columna intermedia
+    echo '<td>' . $total_jobs . '</td>'; // Total de jobs
+    echo '<td>' . $total_horas . '</td>'; // Total de horas
+    echo '</tr>';
+
+    echo '</tbody>';
+    echo '</table>';
+    echo '</b>';
+    echo '<div class="container">';
+    echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('d ' . "/" . ' m ' . "/" . ' Y') . '.</figcaption>';
+    echo '</div>';
+    echo '</figure>';
+}
+
 
 
 

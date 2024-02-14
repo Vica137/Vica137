@@ -31,10 +31,10 @@ function procesarFormulario() {
 		echo "cluster: " . $cluster . "<br>";
 		echo "anio: " . $anio . "<br>";
 		echo "mes: " . $mes . "<br>";
-		echo "ini_periodo: " . $ini_mes . "<br>";
-		echo "fin_periodo: " . $fin_mes . "<br>";
-        echo "ini_periodo: " . $ini_anio . "<br>";
-        echo "fin_periodo: " . $fin_anio . "<br>";
+		echo "ini_mes: " . $ini_mes . "<br>";
+		echo "fin_mes: " . $fin_mes . "<br>";
+        echo "ini_anio: " . $ini_anio . "<br>";
+        echo "fin_anio: " . $fin_anio . "<br>";
 
         $resultados = obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
 
@@ -44,17 +44,20 @@ function procesarFormulario() {
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
         	
-            echo "Error por que no hay datos---- ";
+            /*echo "Error por que no hay datos---- ";
             $_SESSION['error_consulta'] = "consulta";
             header("Location: ../vista/vista_error.php");
             die("Error al obtener resultados de la base de datos");
+            */
         }
 
     } else {
+        /*
         // Mensaje de error si no se proporcionan datos válidos 
         $_SESSION['error_datos'] = "datos";   
         header("Location: ../vista/vista_error.php");
         die();
+        */
     }
 }
 
