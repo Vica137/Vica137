@@ -37,9 +37,12 @@ function procesarFormulario() {
         include("../vista/pie.php");
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-            $_SESSION['error_consulta'] = "consulta";
-            header("Location: ../vista/vista_error.php");
-        }
+		
+		header("Location: ../vista/error_consulta.php");
+		die(); 
+
+
+	}
 
     } elseif ((!empty($ini_periodo) && !empty($fin_periodo)) && empty($mes) && empty($anio)) {
         // Llama a la función del modelo para generar el reporte
@@ -50,13 +53,24 @@ function procesarFormulario() {
 	
 	// Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-		include("../vista/vista_error.php");
+	    //echo "Error por que no hay datos---- ";
+            // $_SESSION['error_datos'] = "datos";
+            header("Location: ../vista/error_datos.php");
+            die();
+
+		
 		}
     } else {
         echo "anio: " . $anio . "<br>";
         echo "mes: " . $mes . "<br>";
-        // Mensaje de error si no se proporcionan datos válidos 
-		include("../vista/vista_error.php");
+     
+     	// Mensaje de error si no se proporcionan datos válidos 
+        //$_SESSION['error_parametros'] = "parametros";   
+        header("Location: ../vista/error_parametros.php");
+        die();
+
+    
+    
     }
 }
 

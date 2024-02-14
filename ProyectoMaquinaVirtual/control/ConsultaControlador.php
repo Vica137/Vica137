@@ -44,16 +44,16 @@ function procesarFormulario() {
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
         	
-            echo "Error por que no hay datos---- ";
-            $_SESSION['error_consulta'] = "consulta";
-            header("Location: ../vista/vista_error.php");
-            die("Error al obtener resultados de la base de datos");
+            //echo "Error por que no hay datos---- ";
+            // $_SESSION['error_datos'] = "datos";
+            header("Location: ../vista/error_datos.php");
+            die();
         }
 
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-        $_SESSION['error_datos'] = "datos";   
-        header("Location: ../vista/vista_error.php");
+        //$_SESSION['error_parametros'] = "parametros";   
+        header("Location: ../vista/error_parametros.php");
         die();
     }
 }

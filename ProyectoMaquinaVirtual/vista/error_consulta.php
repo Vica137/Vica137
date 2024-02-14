@@ -1,8 +1,11 @@
+<?php
+include("encabezado.php");
 
+?>
 
 <center>
 <h3>
-Error de  consulta
+Error de  consulta con la base de datos
 </h3>
 
 	<img src="error_base.png" >
@@ -11,14 +14,20 @@ Error de  consulta
 	<div> </div>
 -->
 
+<div>
 <a href='../control/control_error.php'>
- <button >Nueva consulta</button>
+ <button class="boton_error">Nueva consulta</button>
 </a>
-
+</div>
 
 
 </center>
-	
+
+<?php
+include("pie.php");
+?>
+
+
 <script>
 function nueva_consulta(){
     $.ajax({url:"control_error.php", success:function(result){

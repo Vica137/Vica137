@@ -43,10 +43,16 @@ session_start();
 ?>
 
 <nav>
-	<a href="./vista/vista_cluster.php?opcion=cluster"><input type="submit" value="Reporte Cluster"</a>
+<!--	<a href="./vista/vista_cluster.php?opcion=cluster"><input type="submit" value="Reporte Cluster"</a>
         <a href="./vista/vista_usuario.php?opcion=usuario"><input type="submit" value="Reporte usuario"></a>
 	<a href="./vista/vista_proyecto.php?opcion=proyecto"><input type="submit" value="Reporte por proyecto"></a>
-        <a href="./vista/vista_grid.php?opcion=grid"><input type="submit" value="Reporte grid"></a>
+	<a href="./vista/vista_grid.php?opcion=grid"><input type="submit" value="Reporte grid"></a>
+-->
+
+    <a href="./vista/vista_cluster.php?opcion=cluster">Reporte por cluster</a>
+        <a href="./vista/vista_usuario.php?opcion=usuario">Reporte por usuario</a>
+        <a href="./vista/vista_proyecto.php?opcion=proyecto">Reporte por proyecto</a>
+        <a href="./vista/vista_grid.php?opcion=grid">Reporte Grid UNAM</a>
 </nav>
 
     <?php
@@ -56,9 +62,9 @@ session_start();
 	}
     ?>
 
-
+<br>
 <center>
-	<img src="computadora_lamod.jpg" height="40%" width="40%">
+	<img src="./vista/collage_grid_UNAM.jpg" height="40%" width="40%">
 
 </center>
 
