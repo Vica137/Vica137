@@ -27,7 +27,8 @@ function procesarFormulario() {
 	        $fin_mes = substr($fin_periodo, 5);
 	    }
     // Validar que al menos un conjunto de datos sea válido
-    if ((!empty($mes) && !empty($anio) && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
+
+    if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
         // Llama a la función del modelo para generar el reporte
         
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
@@ -38,11 +39,12 @@ function procesarFormulario() {
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
             $_SESSION['error_consulta'] = "consulta";
-            header("Loc ation: ../vista/vista_error.php");
+            header("Location: ../vista/vista_error.php");
             die("Error al obtener resultados de la base de datos");
         }
 
-    } elseif (empty($usuario)) {
+    } elseif (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) &&empty($usuario))) {
+
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
         // Enviar resultados a la vista

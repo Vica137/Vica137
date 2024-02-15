@@ -11,7 +11,35 @@ $totalhoras = 0;
 
 function procesarConsultaMySql($conta_horas) {
     $resultados = array();
+    $usuarios = array(); // Array para almacenar la suma de horas y trabajos por cada usuario
 
+    while ($row = $conta_horas->fetch_assoc()) {
+        $login = $row["login"];
+        $Njobs = $row["Njobs"];
+        $Nhoras = $row["Nhoras"];
+
+        // Verificar si el usuario ya existe en el array de usuarios
+        if (array_key_exists($login, $usuarios)) {
+            // Si el usuario ya existe, sumar las Nhoras y Njobs
+            $usuarios[$login]['Njobs'] += $Njobs;
+            $usuarios[$login]['Nhoras'] += $Nhoras;
+        } else {
+            // Si el usuario no existe, agregarlo al array de usuarios
+            $usuarios[$login] = array('Njobs' => $Njobs, 'Nhoras' => $Nhoras);
+        }
+    }
+
+    // Agregar los resultados al array final con la suma de horas y trabajos por usuario
+    foreach ($usuarios as $login => $totalUsuario) {
+        $resultados[] = array(
+            'login' => $login,
+            'cluster' => $row["cluster"],
+            'Njobs' => $totalUsuario['Njobs'],
+            'Nhoras' => $totalUsuario['Nhoras']
+        );
+    }
+
+    /*
     while ($row = $conta_horas->fetch_assoc()) {
         // Sumar los valores a las variables globales
         $GLOBALS['totaljobs'] += $row["Njobs"];
@@ -24,6 +52,7 @@ function procesarConsultaMySql($conta_horas) {
         );
 
     }
+    */
     // print($resultados);  // Comentado para evitar imprimir y afectar el flujo
     return $resultados;
 }

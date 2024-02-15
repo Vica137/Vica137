@@ -25,7 +25,7 @@ function procesarFormulario() {
 	        $fin_mes = substr($fin_periodo, 5);
 	    }
     // Validar que al menos un conjunto de datos sea válido
-    if ((!empty($mes) && !empty($anio) && !empty($cluster)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($cluster))) {
+    if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($cluster)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($cluster))) {
         // Llama a la función del modelo para generar el reporte
         // En el controlador
 		echo "cluster: " . $cluster . "<br>";
@@ -52,12 +52,12 @@ function procesarFormulario() {
         }
 
     } else {
-        /*
+    
         // Mensaje de error si no se proporcionan datos válidos 
         $_SESSION['error_datos'] = "datos";   
         header("Location: ../vista/vista_error.php");
         die();
-        */
+        
     }
 }
 

@@ -24,13 +24,13 @@ function procesarFormulario() {
         }    
 
     // Validar que al menos un conjunto de datos sea válido
-    if (!empty($mes) && !empty($anio)) {
+    if ($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año') {
         //ver lo que contiene cada variable
         //echo "anio: " . $anio . "<br>";
         //echo "mes: " . $mes . "<br>";
     
         // Llama a la función del modelo para generar el reporte
-        $resultados = obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
+        $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
         // Enviar resultados a la vis
         
         mostrarTabla($resultados);
@@ -41,9 +41,9 @@ function procesarFormulario() {
             header("Location: ../vista/vista_error.php");
         }
 
-    } elseif ((!empty($ini_periodo) && !empty($fin_periodo)) && empty($mes) && empty($anio)) {
+    } elseif ((!empty($ini_periodo) && !empty($fin_periodo)) {
         // Llama a la función del modelo para generar el reporte
-        $resultados = obtenerResultados('', $ini_periodo, $fin_periodo);
+        $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
         // Enviar resultados a la vista
 	mostrarTabla($resultados);
 	include("../vista/pie.php");
