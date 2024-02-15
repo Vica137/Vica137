@@ -44,7 +44,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio,
     // Verificar que los parámetros son válidos antes de realizar la consulta
     if ((!empty($mes) && !empty($anio) && !empty($cluster)) || (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($cluster)))  {
         
-	    /*$con = conectar();**/
+        $con = conectar();
 
         if (!empty($mes) && !empty($anio) && !empty($cluster)) {
             // Utilizar parámetros en la consulta
@@ -60,7 +60,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio,
         // print_r($resultados);
 
         // Cerrar la conexión después de usarla
-/*	$con->close();*/
+        $con->close();
         
         return $resultados;
     }

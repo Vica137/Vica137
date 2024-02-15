@@ -37,10 +37,10 @@ function procesarFormulario() {
         include("../vista/pie.php");
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
-            $_SESSION['error_consulta'] = "consulta";
-            header("Loc ation: ../vista/vista_error.php");
-            die("Error al obtener resultados de la base de datos");
-        }
+		
+	    header("Location: ../vista/error_datos.php");
+	    die();
+	}
 
     } elseif (empty($usuario)) {
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
@@ -50,8 +50,7 @@ function procesarFormulario() {
         include("../vista/pie.php");
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-        $_SESSION['error_datos'] = "datos";   
-        header("Location: ../vista/vista_error.php");
+        header("Location: ../vista/error_parametros.php");
         die();
     }
 }

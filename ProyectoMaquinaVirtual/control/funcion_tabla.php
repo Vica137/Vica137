@@ -98,10 +98,16 @@
     echo '<figcaption class="wp-element-caption">Tabla: Resultados de la consulta. <br>Última actualización: ' . date('d ' . "/" . ' m ' . "/" . ' Y') . '.</figcaption>';
     echo '</div>';
     echo '</figure>';
+   
+   echo '<center>';    
+   echo  '<div>';
+   echo '<a href="../control/control_error.php">';
+   echo ' <button class="boton_error">Nueva consulta</button>';
+   echo '</a>';
+   echo '</div>';
+   echo '</center>';
+  
 }
-
-
-
 
 ?>
 

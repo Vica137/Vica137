@@ -11,7 +11,6 @@
     $consultaController = new ConsultaController();
     $consultaController->mostrarDatos($tipoConsulta, $meses);
  */ 
-
 session_start();
 ?>
 
@@ -35,7 +34,7 @@ session_start();
 	<meta property="og:url" content="https://grid.unam.mx/" />
 	<meta property="og:site_name" content="GRID UNAM" />
 	<meta name="twitter:card" content="summary_large_image" />
-
+</head>
 
 <?php
 
@@ -43,24 +42,41 @@ session_start();
 ?>
 
 <nav>
-<!--	<a href="./vista/vista_cluster.php?opcion=cluster"><input type="submit" value="Reporte Cluster"</a>
-        <a href="./vista/vista_usuario.php?opcion=usuario"><input type="submit" value="Reporte usuario"></a>
-	<a href="./vista/vista_proyecto.php?opcion=proyecto"><input type="submit" value="Reporte por proyecto"></a>
-	<a href="./vista/vista_grid.php?opcion=grid"><input type="submit" value="Reporte grid"></a>
--->
 
-    <a href="./vista/vista_cluster.php?opcion=cluster">Reporte por cluster</a>
-        <a href="./vista/vista_usuario.php?opcion=usuario">Reporte por usuario</a>
-        <a href="./vista/vista_proyecto.php?opcion=proyecto">Reporte por proyecto</a>
-        <a href="./vista/vista_grid.php?opcion=grid">Reporte Grid UNAM</a>
+	<a href="./vista/vista_cluster.php?opcion=cluster" class="cluster"><input type="button" value="Reporte Cluster"></a>
+	<a href="./vista/vista_usuario.php?opcion=usuario" class="usuario"><input type="button" value="Reporte usuario"></a>
+	<a href="./vista/vista_proyecto.php?opcion=proyecto" class="proyecto"><input type="button" value="Reporte por proyecto"></a>
+	<a href="./vista/vista_grid.php?opcion=grid" class="grid"><input type="button" value="Reporte grid"></a>
+
+<!--    <a href="./vista/vista_cluster.php?opc=cluster">Reporte por cluster</a>
+        <a href="./vista/vista_usuario.php?opc=usuario">Reporte por usuario</a>
+        <a href="./vista/vista_proyecto.php?opc=proyecto">Reporte por proyecto</a>
+        <a href="./vista/vista_grid.php?opc=grid">Reporte Grid UNAM</a>
+-->
+	  <?php
+	
+
+	// Verificar si 'opcion' está configurado en la URL
+	if (isset($_GET['opcion'])) {
+	    // Verificar el valor de 'opcion' y establecer $_SESSION['opcionSeleccionada'] en consecuencia
+	    if ($_GET['opcion'] == "cluster") {
+	        $_SESSION['opcionSeleccionada'] = 'cluster';
+	    } elseif ($_GET['opcion'] == "usuario") {
+	        $_SESSION['opcionSeleccionada'] = 'usuario';
+	    } elseif ($_GET['opcion'] == "proyecto") {
+	        $_SESSION['opcionSeleccionada'] = 'proyecto';
+	    } elseif ($_GET['opcion'] == "grid") {
+	        $_SESSION['opcionSeleccionada'] = 'grid';
+	    }
+	}
+	?>
+
+
+
+
+
 </nav>
 
-    <?php
-        // Verificar la opción seleccionada
-        if($_GET['opcion']){
-	    $_SESSION['opcionSeleccionada'] = $_GET['opcion'];
-	}
-    ?>
 
 <br>
 <center>

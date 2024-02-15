@@ -17,7 +17,7 @@ Error de  conexión con la base de datos <?php echo $_SESSION['mysql_error']?>
 
 <div>
 <a href='../control/control_error.php'>
- <button class="boton_error">Nueva consulta</button>
+ <button class="boton_error" onclick=nueva_consulta()>Nueva consulta</button>
 </a>
 </div>
 

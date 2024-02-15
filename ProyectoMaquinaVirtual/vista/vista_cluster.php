@@ -134,6 +134,28 @@ var textoSeleccionado_a = opcionSeleccionada_a.text;
 
 <?php						
 
+
+      
+         
+         // Verificar si 'opcion' está configurado en la URL
+         if (isset($_GET['opcion'])) {
+             // Verificar el valor de 'opcion' y establecer $_SESSION['opcionSeleccionada'] en consecuencia
+            print_r($_GET);
+	    if ($_GET['opcion'] == "cluster") {
+		    $GLOBALS["OpcionIndexCluster"] = 'cluster';
+		    echo $OpcionIndexCluster;
+
+             } elseif ($_GET['opcion'] == "usuario") {
+                 $GLOBALS["OpcionIndexUsuario"] = 'usuario';
+             } elseif ($_GET['opcion'] == "proyecto") {
+                 $GLOBALS["OpcionIndexProyecto"] = 'proyecto';
+             } elseif ($_GET["opcion"] == "grid") {
+                 $GLOBALS["OpcionIndexGrid"] = 'grid';
+             }   
+         }   
+
+
+
 include('pie.php');
 
 ?>

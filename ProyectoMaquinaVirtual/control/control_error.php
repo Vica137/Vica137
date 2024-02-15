@@ -1,15 +1,15 @@
 <?php 
-echo $_SESSION['opcionSeleccionada'];
-echo "hola mundo";
+echo "Vista variable . $OpcionIndexCluster";
+print($OpcionIndexCluster);
 
+//sleep(10);
 
 function redireccion(){
-        switch ($_SESSION['opcionSeleccionada']) {
-        case "cluster":
+        if($OpcionIndexCluster == 'cluster') {
         header("Location: vista_cluster.php");
-        exit(); // Asegúrate de detener la ejecución después de la redirección
-        break;
-        case "usuario":
+	die();
+	}
+/*
         header("Location: vista_usuario.php");
         exit();
         break;
@@ -27,9 +27,9 @@ function redireccion(){
         echo "default";
         header("Location: ../index.php");
         exit();
+} */
 }
-}
-
+ 
 
 //if (isset($_SESSION['opcionSeleccionada'])) {
     redireccion();

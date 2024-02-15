@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Grid UNAM</title>
-    <link rel="stylesheet" href="estilos.css">
-          <style>
+    
+    <link rel="icon" href="https://grid.unam.mx/wp-content/uploads/2023/01/icono_grid.png" sizes="32x32" />
+    <link rel="stylesheet" href="estilos.css"/>
+
+	  <style>
         .image-container {
             text-align: left; Centra el contenido horizontalmente */
         }
@@ -20,9 +23,9 @@
 <body>
 
 <div class="image-container">
-<a href="../../index.php">
- <img src="Logo_grid_unam_b.png" alt="Imagen de ejemplo" class"shifted-image">
-</a>
+	<a href="../../index.php">
+ 	<img src="Logo_grid_unam_b.png" alt="Imagen de ejemplo" class"shifted-image">
+	</a>
 </div>
 
 <hr>
