@@ -31,6 +31,16 @@ function procesarFormulario() {
     if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
         // Llama a la función del modelo para generar el reporte
         
+        $ini_mes = intval($ini_mes);
+        $fin_mes = intval($fin_mes);
+        $ini_anio = (int) $ini_anio;
+        $fin_anio = (int) $fin_anio;
+        echo "anio: " . $anio . "<br>";
+        echo "mes: " . $mes . "<br>";
+        echo "ini_mes: " . $ini_mes . "<br>";
+        echo "fin_mes: " . $fin_mes . "<br>";
+        echo "ini_anio: " . $ini_anio . "<br>";
+        echo "fin_anio: " . $fin_anio . "<br>";
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
         // Enviar resultados a la vista
@@ -43,13 +53,6 @@ function procesarFormulario() {
             die("Error al obtener resultados de la base de datos");
         }
 
-    } elseif (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) &&empty($usuario))) {
-
-        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
-
-        // Enviar resultados a la vista
-        mostrarTabla($resultados);
-        include("../vista/pie.php");
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
         $_SESSION['error_datos'] = "datos";   

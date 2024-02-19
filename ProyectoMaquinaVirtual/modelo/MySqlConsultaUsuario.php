@@ -30,7 +30,7 @@ function procesarConsultaMySql($conta_horas) {
     foreach ($usuarios as $login => $totalUsuario) {
         $resultados[] = array(
             'login' => $login,
-            '-->' => $row["mes"],
+            '-' => $row["mes"],
             'Njobs' => $totalUsuario['Njobs'],
             'Nhoras' => $totalUsuario['Nhoras']
         );

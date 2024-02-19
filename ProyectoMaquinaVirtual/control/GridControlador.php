@@ -4,7 +4,7 @@
     Objetivo: Se encarga de procesar los datos obtenidos de la vista, para mandarlos a modelo y una vez obtenido el resultado se los enviara nuevamente a vista para mostrar los resultados de manera ordenada 
 */
 include("../modelo/MySqlConsultaGrid.php");
-include("../vista/encabezado.php");
+//include("../vista/encabezado.php");
 include("../control/funcion_tabla.php");
 
 function procesarFormulario() {
@@ -41,22 +41,23 @@ function procesarFormulario() {
             header("Location: ../vista/vista_error.php");
         }
 
-    } elseif ((!empty($ini_periodo) && !empty($fin_periodo)) {
+    } elseif ( $mes == 'Seleccione un mes' && $anio == 'Seleccione un año' && !empty($ini_periodo) && !empty($fin_periodo)) {
         // Llama a la función del modelo para generar el reporte
         $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
         // Enviar resultados a la vista
-	mostrarTabla($resultados);
-	include("../vista/pie.php");
+	    mostrarTabla($resultados);
+	    include("../vista/pie.php");
 	
 	// Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
 		include("../vista/vista_error.php");
 		}
     } else {
-        echo "anio: " . $anio . "<br>";
-        echo "mes: " . $mes . "<br>";
+        
         // Mensaje de error si no se proporcionan datos válidos 
-		include("../vista/vista_error.php");
+        $_SESSION['error_datos'] = "datos";   
+        header("Location: ../vista/vista_error.php");
+        die();
     }
 }
 
