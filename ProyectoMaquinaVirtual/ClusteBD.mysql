@@ -167,3 +167,17 @@ INSERT INTO rgrid (login, Njobs, Nhoras, anio, mes, cluster) VALUES
 ('0745', 54, 96.54, 2024, 6, 'LAMOD'),
 ('0125', 25, 852.63, 2024, 1, 'IAE'),
 ('0125', 11, 85.86, 2024, 12, 'ICACC');
+
+-- Creación de la tabla para almacenar las contraseñas de usuarios
+
+USE rgrid;
+
+CREATE TABLE users (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   username VARCHAR(120) NOT NULL,
+   password VARCHAR(100) NOT NULL
+);
+
+INSERT INTO users (username,password) VALUES('fabiola',SHA('12345678X%'))
+INSERT INTO users (username,password) VALUES('gonzalo',SHA('12345678X%'))
+

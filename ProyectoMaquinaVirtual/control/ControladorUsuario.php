@@ -12,13 +12,13 @@ function procesarFormulario() {
     $usuario = isset($_POST["usuario"]) ? $_POST["usuario"] : '';
     $anio = isset($_POST["anio"]) ? $_POST["anio"] : '';
     $mes = isset($_POST["mes"]) ? $_POST["mes"] : '';
-    
+    $todos = isset($_POST["todos"]) && $_POST["todos"] === "todos";
     // Definir $ini_periodo y $fin_periodo
     $ini_periodo = isset($_POST["ini_periodo"]) ? $_POST["ini_periodo"] : '';
     $fin_periodo = isset($_POST["fin_periodo"]) ? $_POST["fin_periodo"] : '';
 
     //2022-01
-	//2023-12
+	//2023-12 
 	// Definir $mes y $anio si se ha enviado un periodo
 	if (!empty($ini_periodo) && !empty($fin_periodo)) {
 	        $ini_anio = substr($ini_periodo, 0, 4);
@@ -27,7 +27,7 @@ function procesarFormulario() {
 	        $fin_mes = substr($fin_periodo, 5);
 	    }
     // Validar que al menos un conjunto de datos sea válido
-    if ((!empty($mes) && !empty($anio) && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
+    if ((!empty($mes) && !empty($anio) && !empty($usuario) && empty($todos)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario) && empty($todos))) {
         // Llama a la función del modelo para generar el reporte
         
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
@@ -40,21 +40,29 @@ function procesarFormulario() {
 		
 	    header("Location: ../vista/error_datos.php");
 	    die();
-	}
+	    }
+    }  elseif (!empty($mes) && !empty($anio) && $todos) {
 
-    } elseif (empty($usuario)) {
         $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
+    
         // Enviar resultados a la vista
         mostrarTabla($resultados);
+
         include("../vista/pie.php");
+
+        if (!$resultados) {
+		
+            header("Location: ../vista/error_datos.php");
+            die();
+            }
+
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
         header("Location: ../vista/error_parametros.php");
         die();
     }
 }
-
 
 // Procesar formulario si se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

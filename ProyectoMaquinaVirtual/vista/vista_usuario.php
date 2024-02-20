@@ -40,7 +40,7 @@ include("encabezado.php");
 
 <p><li><label for="check_usuarios">Buscar para todos los usuarios:</label>
 <center>
-<input value="todos" type="checkbox" class="mycheck" name="name_check_usuarios" id="id_check_usuarios">  </li> </p>
+<input value="todos" type="checkbox" class="mycheck" name="todos" id="id_check_usuarios">  </li> </p>
 </center>
 
 
@@ -85,6 +85,7 @@ include("encabezado.php");
 	<label for="bdaymonth"> Fin de periodo:</label>
 	<input type="month" id="id_fin_periodo" name="fin_periodo">
 	</li></p>
+
 
       <!-- <p><li>
 	<label for="fecha"> Fecha:</label><input type="month" id="id_fecha" name="fecha"
