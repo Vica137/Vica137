@@ -37,6 +37,10 @@ include("encabezado.php");
                 <input name="usuario" id="usuario">
 	
 	</li></p>
+	<p><li><label for="check_usuarios">Buscar para todos los usuarios:</label>
+<center>
+<input value="todos" type="checkbox" class="mycheck" name="name_check_usuarios" id="id_check_usuarios">  </li> </p>
+</center>
         <p></p><li>
             <label for="anio">Año:</label>
                 <select name="anio" id="anio">

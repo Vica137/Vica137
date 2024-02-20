@@ -53,7 +53,14 @@ function obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio,
             // Utilizar parámetros en la consulta
             $conta_horas = $con->query("SELECT * FROM rgrid WHERE (rgrid.anio >= '$ini_anio' AND rgrid.mes >= '$ini_mes') AND (rgrid.anio <= '$fin_anio' AND rgrid.mes <= '$fin_mes') AND rgrid.login = '$usuario' ORDER BY rgrid.anio, rgrid.mes;");
             $resultados = procesarConsultaMySql($conta_horas);
-        } /*elseif (!empty($mes) && !empty($anio) && !empty($todos)) {
+        } elseif ($todos) {
+        // Realizar la consulta para todos los usuarios
+        $conta_horas = $con->query("SELECT * FROM rgrid ORDER BY login");
+            $resultados = procesarConsultaMySql($conta_horas);
+
+        }
+
+        /*elseif (!empty($mes) && !empty($anio) && !empty($todos)) {
             $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' ORDER BY login");
         }*/
 
