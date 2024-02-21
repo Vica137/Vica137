@@ -49,9 +49,11 @@
   function mostrarTabla($resultados)
 {
     if (empty($resultados)) {
-        echo 'No hay datos para mostrar.';
-        return;
-    }
+	    //echo 'No hay datos para mostrar.';
+	header("Location:  ../vista/error_datos.php");       
+	die();
+     	return;
+  }
     echo '<br>'; // Espacio en blanco para que la tabla no esté tan pegada al encabezado
     echo '<b>'; // Negritas
     echo '<figure class="wp-block-table is-style-regular">';
@@ -106,8 +108,12 @@
    echo '</a>';
    echo '</div>';
    echo '</center>';
+
+   include("../vista/pie.php");
   
 }
+
+    
 
 ?>
 
