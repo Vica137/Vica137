@@ -73,7 +73,7 @@ include('./vista/encabezado.php')
           <form  method="POST" autocomplete="off">
             <h2 class="text-center">Inicio de sesión</h2>
 	<?php
-	include("./modelo/conexion.php");	
+	include("./modelo/conexion_login.php");	
 	
 	include("./control/controlador_login.php");	
 

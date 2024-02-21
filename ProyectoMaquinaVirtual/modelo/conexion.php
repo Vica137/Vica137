@@ -7,7 +7,9 @@ function conectar(){
         $server="localhost";
         $db="rgrid";
         $con=new mysqli($server,$user,$pass, $db);
-        if (!$con) {
+	$con->set_charset("utf8");
+
+	if (!$con) {
                 die('No se pudo conectar: ' . mysql_error());
         }
         return $con;

@@ -32,9 +32,8 @@ function procesarFormulario() {
         // Llama a la función del modelo para generar el reporte
         $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
         // Enviar resultados a la vis
-        
+   	include("../vista/encabezado.php");     
         mostrarTabla($resultados);
-        include("../vista/pie.php");
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
             header("Location: ../vista/error_datos.php");
@@ -45,7 +44,7 @@ function procesarFormulario() {
         // Llama a la función del modelo para generar el reporte
         $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
         // Enviar resultados a la vista
-	    mostrarTabla($resultados);
+   	    mostrarTabla($resultados);
 	    include("../vista/pie.php");
 	
 	// Verificar resultados y mostrar mensaje de error si es necesario
