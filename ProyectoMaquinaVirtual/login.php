@@ -43,7 +43,7 @@ if (isset($_POST['login_button'])) {
 }
 */
 
-include('./vista/encabezado.php')
+include('./vista/encabezado_login.php')
 
 
 ?>

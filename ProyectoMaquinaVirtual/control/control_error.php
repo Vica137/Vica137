@@ -34,8 +34,8 @@ $OpcionIndex = $_SESSION['opcionSeleccionada'];
 
      default:
         // Página por defecto si la variable no coincide con ninguna opción
-        	//header("Location: ../index.php");
-			echo "default";	
+        	header("Location: ../index.php");
+		//	echo "default";	
 			die();
 			break;
 
@@ -49,6 +49,7 @@ $OpcionIndex = $_SESSION['opcionSeleccionada'];
 	$sessionParams = session_get_cookie_params();
 
 // Imprimir la configuración
+/*
 echo "Nombre de la cookie de sesión: " . $sessionParams['name'] . "<br>";
 echo "Tiempo de vida de la cookie de sesión: " . $sessionParams['lifetime'] . "<br>";
 echo "Ruta de la cookie de sesión: " . $sessionParams['path'] . "<br>";
@@ -69,7 +70,7 @@ if (session_status() === PHP_SESSION_ACTIVE) {
 
 echo "El ID de sesión es: " . session_id();
 
-
+*/
    
 
     redireccion();

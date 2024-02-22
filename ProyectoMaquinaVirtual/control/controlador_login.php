@@ -13,8 +13,9 @@ if(!empty($_POST["login_button"])){
 			die();
 		
 		} else{
+			echo "<center>";
 			echo "<div class=alert alert_danger>ACCESO DENEGADO </div>";
-		
+			echo "</center>";
 		}
 
 
