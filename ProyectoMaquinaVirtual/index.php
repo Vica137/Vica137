@@ -12,6 +12,12 @@
     $consultaController->mostrarDatos($tipoConsulta, $meses);
  */ 
 session_start();
+
+if(empty($_SESSION["id"])){
+	header("location: ../login.php");
+	die();
+};
+
 ?>
 
 
@@ -80,7 +86,16 @@ session_start();
 
 <br>
 <center>
+<?php 
+	echo "Usuario: " . $_SESSION["username"];
+
+?>
 	<img src="./vista/collage_grid_UNAM.jpg" height="40%" width="40%">
+	
+	<br>
+	<a href='./control/controlador_logout.php'>
+ 	<button class="boton_error" >Salir</button>
+	</a>
 
 </center>
 

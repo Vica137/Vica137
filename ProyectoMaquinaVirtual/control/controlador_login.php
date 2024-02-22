@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("./modelo/conexion.php");
 
 
@@ -10,7 +11,11 @@ if(!empty($_POST["login_button"])){
 		
 		$sql=$con->query("SELECT * FROM users WHERE username='$username' AND password='$password' ");
 		if($datos=$sql->fetch_object()) {
-	
+			$_SESSION["id"]=$datos->id;
+			$_SESSION["username"]=$datos->username;
+				
+
+			
 			header("location:index.php");
 			die();
 			
