@@ -1,25 +1,28 @@
 <?php
+include("./modelo/conexion.php");
+
 
 if(!empty($_POST["login_button"])){
-	if(empty($_POST["username"]) and empty($_POST["username"])){ //creo que esto está demás porque hay una protección en login.php
-	echo "Los campos están vacios";
+	        $con=conectar();
 	
-	}else {
 		$username=$_POST["username"];
 		$password=sha1($_POST["password"]);
-		$sql=$conexion->query("select * from users where username='$username' and password='$password' ");
+		
+		$sql=$con->query("SELECT * FROM users WHERE username='$username' AND password='$password' ");
 		if($datos=$sql->fetch_object()) {
+	
 			header("location:index.php");
 			die();
-		
+			
+			
 		} else{
 			echo "<center>";
 			echo "<div class=alert alert_danger>ACCESO DENEGADO </div>";
 			echo "</center>";
 		}
+		
+			$con->close();
 
-
-	}
 	
 
 

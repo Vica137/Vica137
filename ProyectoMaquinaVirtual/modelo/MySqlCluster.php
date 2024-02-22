@@ -50,7 +50,7 @@ function obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio,
             // Utilizar parámetros en la consulta
             $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' and rgrid.cluster='$cluster' ORDER BY login");
             $resultados = procesarConsultaMySql($conta_horas);
-        } elseif (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($cluster)) {
+        } elseif ($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio) && !empty($cluster)) {
             // Utilizar parámetros en la consulta
             $conta_horas = $con->query("SELECT * FROM rgrid WHERE (rgrid.anio >= '$ini_anio' AND rgrid.mes >= '$ini_mes') AND (rgrid.anio <= '$fin_anio' AND rgrid.mes <= '$fin_mes') AND rgrid.cluster = '$cluster' ORDER BY rgrid.anio, rgrid.mes;");
             $resultados = procesarConsultaMySql($conta_horas);

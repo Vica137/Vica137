@@ -1,47 +1,6 @@
 
 <?php
-/*
 
-// Iniciar sesión
-session_start();
- 
-// Conexión a la base de datos
-	$user="root";
-        $pass="";
-        $server="localhost";
-        $db="rgrid";
-$con=new mysqli($server,$user,$pass, $db);
-
-$con->set_charset("utf8");
-
-$errors = [];
-
-// Si se ha enviado el formulario
-if (isset($_POST['login_button'])) {
-  $username = mysqli_real_escape_string($con, $_POST['username']);
-  $password = mysqli_real_escape_string($con, $_POST['password']);
- 
-  // Comprobar si el nombre de usuario es válido
-  $query = "SELECT * FROM users WHERE username='$username'";
-  $results = mysqli_query($con, $query);
- 
-  if (mysqli_num_rows($results) == 1) {
-    // Nombre de usuario válido, verificar contraseña
-    $row = mysqli_fetch_assoc($results);
-    if (password_verify($password, $row['password'])) {
-      // Inicio de sesión válido
-      $_SESSION['username'] = $username; 
-      header('location: index.php');
-    } else {
-      // Contraseña inválida
-      $errors[] = "Nombre de usuario/contraseña inválidos";
-    }
-  } else {
-    // Nombre de usuario inválido
-    $errors[] = "Nombre de usuario/contraseña inválidos";
-  }
-}
-*/
 
 include('./vista/encabezado_login.php')
 
@@ -73,8 +32,7 @@ include('./vista/encabezado_login.php')
           <form  method="POST" autocomplete="off">
             <h2 class="text-center">Inicio de sesión</h2>
 	<?php
-	include("./modelo/conexion_login.php");	
-	
+
 	include("./control/controlador_login.php");	
 
 	?>	
