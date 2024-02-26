@@ -1,0 +1,4 @@
+Require valid-user
+AuthUserFile "/etc/htpasswd"
+AuthType Basic
+AuthName "Ejemplo de autenticacion"
