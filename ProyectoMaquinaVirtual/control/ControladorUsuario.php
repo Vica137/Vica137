@@ -33,38 +33,50 @@ function procesarFormulario() {
         $fin_mes = intval($fin_mes);
         $ini_anio = intval($ini_anio);
         $fin_anio = intval($fin_anio);
-        
-        // Obtener los resultados
-        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
-        // Mostrar la tabla y enviar el pie de página
-        mostrarTabla($resultados);
-        include("../vista/pie.php");
+//Verificar si el usuaro no existe y mostrar mensaje de error
+        if (!verificarUsuario($usuario)){
 
-        // Verificar resultados y mostrar mensaje de error si es necesario
-        if (!$resultados) {
-            $_SESSION['error_consulta'] = "consulta";
-            header("Location: ../vista/vista_error.php");
-            die("Error al obtener resultados de la base de datos");
-        } 
-    } elseif ($todos) {
-        // Obtener los resultados para todos los usuarios
-        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
+    header("Location: ../vista/error_usuario.php");
+    die();
 
-        // Mostrar la tabla y enviar el pie de página
-        mostrarTabla($resultados);
-        include("../vista/pie.php");
+        } else {
 
-        // Verificar resultados y mostrar mensaje de error si es necesario
-        if (!$resultados) {
-            $_SESSION['error_consulta'] = "consulta";
-            header("Location: ../vista/vista_error.php");
-            die("Error al obtener resultados de la base de datos");
+            // Obtener los resultados
+            $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
+
+            // Mostrar la tabla y enviar el pie de página
+            mostrarTabla($resultados);
+            include("../vista/pie.php");
+
+            // Verificar resultados y mostrar mensaje de error si es necesario
+            if (!$resultados) {
+                $_SESSION['error_consulta'] = "consulta";
+                header("Location: ../vista/vista_error.php");
+                die("Error al obtener resultados de la base de datos");
+            } 
+
         }
+
+    } elseif (!empty($mes) && !empty($anio) && $todos) {
+
+        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
+
+    
+        // Enviar resultados a la vista
+        mostrarTabla($resultados);
+
+        include("../vista/pie.php");
+
+        if (!$resultados) {
+        
+            header("Location: ../vista/error_datos.php");
+            die();
+            }
+
     } else {
         // Mensaje de error si no se proporcionan datos válidos 
-        $_SESSION['error_datos'] = "datos";   
-        header("Location: ../vista/vista_error.php");
+        header("Location: ../vista/error_parametros.php");
         die();
     }
 }
