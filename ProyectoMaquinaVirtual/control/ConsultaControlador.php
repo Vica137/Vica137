@@ -8,6 +8,8 @@ include("../vista/encabezado.php");
 include("../control/funcion_tabla.php");
 
 function procesarFormulario() {
+
+    
     // Obtener los valores del formulario
     $cluster = isset($_POST["cluster"]) ? $_POST["cluster"] : '';
     $anio = isset($_POST["anio"]) ? $_POST["anio"] : '';
@@ -20,35 +22,34 @@ function procesarFormulario() {
 		// Definir $mes y $anio si se ha enviado un periodo
 	    if (!empty($ini_periodo) && !empty($fin_periodo)) {
 	        $ini_anio = substr($ini_periodo, 0, 4);
-	        $ini_mes = substr($ini_periodo, 6);
+	        $ini_mes = substr($ini_periodo, 5);
 	        $fin_anio = substr($fin_periodo, 0, 4);
 	        $fin_mes = substr($fin_periodo, 5);
 	    }
     // Validar que al menos un conjunto de datos sea válido
     if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($cluster)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($cluster))) {
-        // Llama a la función del modelo para generar el reporte
-        // En el controlador
-		echo "cluster: " . $cluster . "<br>";
-		echo "anio: " . $anio . "<br>";
-		echo "mes: " . $mes . "<br>";
-		echo "ini_mes: " . $ini_mes . "<br>";
-		echo "fin_mes: " . $fin_mes . "<br>";
-        echo "ini_anio: " . $ini_anio . "<br>";
-        echo "fin_anio: " . $fin_anio . "<br>";
 
         $resultados = obtenerResultados($mes, $anio, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
 
+        if(($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($cluster))) {
         // Enviar resultados a la vista
-        mostrarTabla($resultados);
+        mostrarTablaClusterXMes($resultados, $cluster, $mes, $anio);
+        include("../vista/pie.php");
+
+    } elseif ((!empty($ini_periodo) && !empty($fin_periodo) && !empty($cluster))) {
+        mostrarTablaClusterXPeriodo($resultados, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
+        include("../vista/pie.php");
+    }
+
 
         // Verificar resultados y mostrar mensaje de error si es necesario
         if (!$resultados) {
         	
-            /*echo "Error por que no hay datos---- ";
+            echo "Error por que no hay datos---- ";
             $_SESSION['error_consulta'] = "consulta";
             header("Location: ../vista/vista_error.php");
             die("Error al obtener resultados de la base de datos");
-            */
+            
         }
 
     } else {

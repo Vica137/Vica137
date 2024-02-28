@@ -27,7 +27,7 @@ function procesarFormulario() {
     }
     
     // Validar que al menos un conjunto de datos sea válido
-    if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
+    if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario)) || (!empty($ini_periodo) && !empty($fin_periodo) && !empty($todos))) {
         // Llama a la función del modelo para generar el reporte
         $ini_mes = intval($ini_mes);
         $fin_mes = intval($fin_mes);
@@ -35,25 +35,39 @@ function procesarFormulario() {
         $fin_anio = intval($fin_anio);
 
 //Verificar si el usuaro no existe y mostrar mensaje de error
-        if (!verificarUsuario($usuario)){
+        if(!verificarUsuario($usuario) && empty($todos)){
 
-    header("Location: ../vista/error_usuario.php");
-    die();
+        header("Location: ../vista/error_usuario.php");
+        die();
 
         } else {
 
             // Obtener los resultados
             $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
-            // Mostrar la tabla y enviar el pie de página
-            mostrarTabla($resultados);
-            include("../vista/pie.php");
 
+
+            if($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)){
+                // Mostrar la tabla y enviar el pie de página
+                mostrarTablaUsuarioXmes($resultados, $usuario, $mes, $anio);
+                include("../vista/pie.php");
+            } elseif ((!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
+                // Mostrar la tabla y enviar el pie de página
+                mostrarTabla($resultados);
+                include("../vista/pie.php");
+            } elseif (!empty($ini_periodo) && !empty($fin_periodo) && !empty($todos)) {
+                // Mostrar la tabla y enviar el pie de página
+                mostrarTabla($resultados);
+                include("../vista/pie.php");
+            }
             // Verificar resultados y mostrar mensaje de error si es necesario
             if (!$resultados) {
-                $_SESSION['error_consulta'] = "consulta";
+
+                echo 'Paso por aqui';
+                /*$_SESSION['error_consulta'] = "consulta";
                 header("Location: ../vista/vista_error.php");
                 die("Error al obtener resultados de la base de datos");
+                */
             } 
 
         }
@@ -86,3 +100,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     procesarFormulario();
 }
 ?>
+
+
+<?php
+
+
+/*
+
+{
+
+            // Obtener los resultados
+            $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
+
+            // Evaluar que tipo de tabla se utilizará
+            if(($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario))){
+
+                // Mostrar la tabla y enviar el pie de página
+                mostrarTablaUsuarioXMes($resultados);
+                include("../vista/pie.php");
+
+
+            } elseif ((!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
+                
+                // Mostrar la tabla y enviar el pie de página
+                mostrarTablaUsuarioXPeriodo($resultados);
+                include("../vista/pie.php");
+            }
+
+            // Verificar resultados y mostrar mensaje de error si es necesario
+            if (!$resultados) {
+                $_SESSION['error_consulta'] = "consulta";
+                header("Location: ../vista/vista_error.php");
+                die("Error al obtener resultados de la base de datos");
+            } 
+
+        }
+
+*/
+?>
+

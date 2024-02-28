@@ -39,20 +39,6 @@ function procesarConsultaMySql($conta_horas) {
         );
     }
 
-    /*
-    while ($row = $conta_horas->fetch_assoc()) {
-        // Sumar los valores a las variables globales
-        $GLOBALS['totaljobs'] += $row["Njobs"];
-        $GLOBALS['totalhoras'] += $row["Nhoras"];
-        $resultados[] = array(
-            'login' => $row['login'],
-            'cluster' => $row["cluster"],
-            'Njobs' => $row["Njobs"],
-            'Nhoras' => $row["Nhoras"]
-        );
-
-    }
-    */
     // print($resultados);  // Comentado para evitar imprimir y afectar el flujo
     return $resultados;
 }
@@ -66,14 +52,15 @@ function obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio
 
         $con = conectar();
 
-        if (!empty($mes) && !empty($anio)) {
+        if ($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año') {
 
             // Utilizar parámetros en la consulta
             $conta_horas = $con->query("SELECT * FROM rgrid WHERE rgrid.mes='$mes' and rgrid.anio='$anio' ORDER BY cluster");
             $resultados = procesarConsultaMySql($conta_horas);
 
-        }elseif (!empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio)) {
-             $conta_horas = $con->query("SELECT * FROM rgrid WHERE (anio >= '$anio' and mes >= '$mes') and (anio <= '$anio' and mes <= '$mes') order by mes");
+        }elseif ($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($ini_mes) && !empty($fin_mes) && !empty($ini_anio) && !empty($fin_anio)) {
+             $conta_horas = $con->query("SELECT * FROM rgrid WHERE (rgrid.anio > $fin_anio OR (rgrid.anio = $ini_anio AND rgrid.mes >= $ini_mes)) AND (rgrid.anio < $fin_anio OR (rgrid.anio = $fin_anio AND rgrid.mes <= $fin_mes)) ORDER BY rgrid.anio;");
+            $resultados = procesarConsultaMySql($conta_horas);
         }
         // Aquí puedes imprimir o devolver los resultados 
         //print_r($resultados);

@@ -24,7 +24,7 @@ function procesarFormulario() {
         }    
 
     // Validar que al menos un conjunto de datos sea válido
-    if ($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año') {
+    if (($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año') || (!empty($ini_periodo) && !empty($fin_periodo))) {
         //ver lo que contiene cada variable
         //echo "anio: " . $anio . "<br>";
         //echo "mes: " . $mes . "<br>";
@@ -41,17 +41,6 @@ function procesarFormulario() {
             header("Location: ../vista/vista_error.php");
         }
 
-    } elseif ( $mes == 'Seleccione un mes' && $anio == 'Seleccione un año' && !empty($ini_periodo) && !empty($fin_periodo)) {
-        // Llama a la función del modelo para generar el reporte
-        $resultados = obtenerResultados($mes, $anio, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
-        // Enviar resultados a la vista
-	    mostrarTabla($resultados);
-	    include("../vista/pie.php");
-	
-	// Verificar resultados y mostrar mensaje de error si es necesario
-        if (!$resultados) {
-		include("../vista/vista_error.php");
-		}
     } else {
         
         // Mensaje de error si no se proporcionan datos válidos 

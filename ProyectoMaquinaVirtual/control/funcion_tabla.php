@@ -44,10 +44,13 @@
     </style>
 </head>
 
+
+
 <?php
 
-  function mostrarTabla($resultados)
-{
+function mostrarTabla($resultados){
+
+    //include("../modelo/MySqlCluster.php");
     if (empty($resultados)) {
         echo 'No hay datos para mostrar.';
         return;
@@ -86,7 +89,6 @@
     echo '<tr>';
     echo '<td>TOTAL</td>';
     echo '<td></td>'; // Celda vacía para la columna intermedia
-    echo '<td></td>'; // Celda vacía para la columna intermedia
     echo '<td>' . $total_jobs . '</td>'; // Total de jobs
     echo '<td>' . $total_horas . '</td>'; // Total de horas
     echo '</tr>';
@@ -101,7 +103,108 @@
 }
 
 
+function mostrarTablaClusterXMes($resultados, $cluster, $mes, $anio){
 
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Cluster: ' . $cluster ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Mes: ' . $mes ;
+    echo ' ';
+    echo 'Año: ' . $anio ;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+function mostrarTablaClusterXPeriodo($resultados, $cluster, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Cluster: ' . $cluster ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Periodo del : ' . $ini_mes . ' - ' . $ini_anio . '  al ' . $fin_mes . ' - ' . $fin_anio;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+function mostrarTablaUsuarioXmes($resultados, $usuario, $mes, $anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Usuario: ' . $usuario ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Mes: ' . $mes ;
+    echo ' ';
+    echo 'Año: ' . $anio ;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+
+function mostrarTablaUsuarioXPeriodo($resultados, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Usuario: ' . $usuario ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Periodo del : ' . $ini_mes . ' - ' . $ini_anio . '  al ' . $fin_mes . ' - ' . $fin_anio;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+function mostrarTablaGridXmes($resultados, $mes, $anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Grid UNAM' ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Mes: ' . $mes ;
+    echo ' ';
+    echo 'Año: ' . $anio ;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+function mostrarTablaGridXPeriodo($resultados, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo 'Grid UNAM ';
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Periodo del : ' . $ini_mes . ' - ' . $ini_anio . '  al ' . $fin_mes . ' - ' . $fin_anio;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
 
 ?>
 

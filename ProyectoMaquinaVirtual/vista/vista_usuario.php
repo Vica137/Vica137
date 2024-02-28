@@ -37,10 +37,13 @@ include("encabezado.php");
                 <input name="usuario" id="usuario">
 	
 	</li></p>
-	<p><li><label for="check_usuarios">Buscar para todos los usuarios:</label>
+
+<p><li><label for="check_usuarios">Buscar para todos los usuarios:</label>
 <center>
-<input value="todos" type="checkbox" class="mycheck" name="name_check_usuarios" id="id_check_usuarios">  </li> </p>
+<input value="todos" type="checkbox" class="mycheck" name="todos" id="id_check_usuarios">  </li> </p>
 </center>
+
+
         <p></p><li>
             <label for="anio">Año:</label>
                 <select name="anio" id="anio">
@@ -51,45 +54,46 @@ include("encabezado.php");
                     <option value="2025">2025</option>
                 </select>
         </li></p>
-        <p>
-        <li>
-               <label for="mes">Mes:</label>
-                <select name="mes" id="id_mes">
-                    <option selected>Seleccione un mes</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
+
+
+	<p>
+	<li>
+	       <label for="mes">Mes:</label>
+		<select name="mes" id="id_mes">
+		    <option selected>Seleccione un mes</option>
+		    <option value="1">Enero</option>
+		    <option value="2">Febrero</option>
+		    <option value="3">Marzo</option>
+		    <option value="4">Abril</option>
+		    <option value="5">Mayo</option>
+		    <option value="6">Junio</option>
+		    <option value="7">Julio</option>
+		    <option value="8">Agosto</option>
+		    <option value="9">Septiembre</option>
+		    <option value="10">Octubre</option>
+		    <option value="11">Noviembre</option>
+		    <option value="12">Diciembre</option>
+		</select>
 	</li></p>
 	<p>
 	<li>
-  	<label for="bdaymonth"> Inicio de periodo:</label>
-  	<input type="month" id="id_ini_periodo" name="ini_periodo">
+	<label for="ini_periodo"> Inicio de periodo:</label>
+	<input type="month" id="id_ini_periodo" name="ini_periodo">
 	</li></p>
 	<p>
-        <li>
-        <label for="bdaymonth"> Fin de periodo:</label>
-        <input type="month" id="id_fin_periodo" name="fin_periodo">
-        </li></p>
+	<li>
+	<label for="fin_periodo"> Fin de periodo:</label>
+	<input type="month" id="id_fin_periodo" name="fin_periodo">
+	</li></p>
 
 
       <!-- <p><li>
-        <label for="fecha"> Fecha:</label><input type="month" id="id_fecha" name="fecha"
+	<label for="fecha"> Fecha:</label><input type="month" id="id_fecha" name="fecha"
        min="2023-06" value="2023-06" max="2030-12"></li></p> -->
     <p>
-            <!-- <input type="submit" name="todos" value="todos"> -->
-            <button type="submit">Enviar</button>
-            <button type="reset">Borrar </button>
-        </p>
+	    <button type="submit">Enviar</button>
+	    <button type="reset">Borrar </button>
+	</p>
 
        </ul>
 </form>
