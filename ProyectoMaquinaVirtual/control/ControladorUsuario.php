@@ -45,21 +45,25 @@ function procesarFormulario() {
             // Obtener los resultados
             $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
 
-
-
             if($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($usuario)){
                 // Mostrar la tabla y enviar el pie de página
                 mostrarTablaUsuarioXmes($resultados, $usuario, $mes, $anio);
                 include("../vista/pie.php");
             } elseif ((!empty($ini_periodo) && !empty($fin_periodo) && !empty($usuario))) {
                 // Mostrar la tabla y enviar el pie de página
-                mostrarTabla($resultados);
+                mostrarTablaUsuarioXPeriodo($resultados, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio);
                 include("../vista/pie.php");
-            } elseif (!empty($ini_periodo) && !empty($fin_periodo) && !empty($todos)) {
-                // Mostrar la tabla y enviar el pie de página
-                mostrarTabla($resultados);
-                include("../vista/pie.php");
-            }
+            } elseif (!empty($ini_periodo) && !empty($fin_periodo) && !empty($todos) || $mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($todos)) {
+
+                    if($mes !== 'Seleccione un mes' && $anio !== 'Seleccione un año' && !empty($todos)){
+                        echo "Hola";
+                        // Mostrar la tabla y enviar el pie de página
+                        mostrarTablaTodosXmes($resultados, $mes, $anio);
+                        
+                        include("../vista/pie.php");
+                    }
+
+            } else {
             // Verificar resultados y mostrar mensaje de error si es necesario
             if (!$resultados) {
 
@@ -72,27 +76,18 @@ function procesarFormulario() {
 
         }
 
-    } elseif (!empty($mes) && !empty($anio) && $todos) {
-
-        $resultados = obtenerResultados($mes, $anio, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio, $todos);
-
-    
-        // Enviar resultados a la vista
-        mostrarTabla($resultados);
-
-        include("../vista/pie.php");
+        }
 
         if (!$resultados) {
         
             header("Location: ../vista/error_datos.php");
             die();
-            }
-
-    } else {
+            } else {
         // Mensaje de error si no se proporcionan datos válidos 
         header("Location: ../vista/error_parametros.php");
         die();
     }
+}
 }
 
 // Procesar formulario si se ha enviado

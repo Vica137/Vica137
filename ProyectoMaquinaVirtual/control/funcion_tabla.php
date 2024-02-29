@@ -155,6 +155,22 @@ function mostrarTablaUsuarioXmes($resultados, $usuario, $mes, $anio){
     mostrarTabla($resultados);
 }
 
+function mostrarTablaTodosXmes($resultados, $mes, $anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Mes: ' . $mes ;
+    echo ' ';
+    echo 'Año: ' . $anio ;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
 
 function mostrarTablaUsuarioXPeriodo($resultados, $usuario, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
 
@@ -162,6 +178,21 @@ function mostrarTablaUsuarioXPeriodo($resultados, $usuario, $ini_mes, $fin_mes, 
     echo '<center>';
     echo '<h2 style="color: black;">';
     echo 'Usuario: ' . $usuario ;
+    echo '</h2>';
+    echo '<h4 style="color: black;">';
+    echo 'Periodo del : ' . $ini_mes . ' - ' . $ini_anio . '  al ' . $fin_mes . ' - ' . $fin_anio;
+    echo '</h4>';
+    echo '</center>';
+
+
+    mostrarTabla($resultados);
+}
+
+function mostrarTablaTodosXPeriodo($resultados, $todos, $ini_mes, $fin_mes, $ini_anio, $fin_anio){
+
+    
+    echo '<center>';
+    echo '<h2 style="color: black;">';
     echo '</h2>';
     echo '<h4 style="color: black;">';
     echo 'Periodo del : ' . $ini_mes . ' - ' . $ini_anio . '  al ' . $fin_mes . ' - ' . $fin_anio;
